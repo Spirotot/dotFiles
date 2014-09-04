@@ -20,7 +20,7 @@ exec gnome-settings-daemon
 exec --no-startup-id nm-applet
 exec --no-startup-id gnome-sound-applet
 #exec --no-startup-id davmail
-exec --no-startup-id dropbox -start
+exec --no-startup-id dropbox start
 exec --no-startup-id owncloud
 set $mod Mod4
 bindsym $mod+Mod1+l exec i3lock -d
