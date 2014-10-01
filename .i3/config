@@ -20,6 +20,7 @@ exec gnome-settings-daemon
 exec --no-startup-id nm-applet
 exec --no-startup-id gnome-sound-applet
 exec --no-startup-id davmail
+exec --no-startup-id tiddlywiki ~/defaultwiki --server
 set $mod Mod4
 bindsym $mod+Mod1+l exec i3lock -d
 bindsym $mod+n exec nemo --no-desktop
@@ -86,7 +87,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+u focus parent
 
 # focus the child container
 #bindcode $mod+d focus child
