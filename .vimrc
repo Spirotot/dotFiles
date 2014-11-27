@@ -1,7 +1,18 @@
-syntax enable
-filetype plugin on
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+syntax on
+set clipboard=unnamed
+set number
+set tabstop=4 shiftwidth=4 expandtab
+
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'Valloric/YouCompleteMe'
+
+filetype plugin indent on
 set background=dark
 colorscheme solarized
-set nu
-set ai
-set nocp
