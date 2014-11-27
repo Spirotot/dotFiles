@@ -1,0 +1,14 @@
+ownCloud/
+.cache/
+.config/
+.local/
+.npm/
+.dropbox-dist/
+.dropbox/
+.mozilla/
+.gconf/
+.thunderbird/
+.ssh/
+.wine*/
+.gnome/
+.cinnamon/
