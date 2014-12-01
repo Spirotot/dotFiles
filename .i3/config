@@ -9,21 +9,13 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-#assign [class="Firefox"] 1: www
-#assign [class="Gnome-terminal"] 3: term
-#assign [class="Mail"] 2: mail
-
 bindsym $mod+Shift+P exec ~/bin/suspendandlock.sh
 
 exec gnome-settings-daemon
-#exec --no-startup-id nitrogen --restore
 exec --no-startup-id nm-applet
 exec --no-startup-id gnome-sound-applet
 exec --no-startup-id davmail
 exec --no-startup-id tiddlywiki ~/defaultwiki --server
-#exec --no-startup-id dropbox start
-#exec --no-startup-id owncloud
-#exec --no-startup-id xautolock -time 10 -locker '~/bin/suspendandlock.sh' &
 
 exec --no-startup-id xautolock -time 10 -locker 'i3lock -d' &
 

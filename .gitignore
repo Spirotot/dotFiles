@@ -1,4 +1,5 @@
 ownCloud/
+.eclipse/
 .cache/
 .config/
 .local/
