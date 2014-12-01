@@ -23,34 +23,34 @@ bureau_git_branch () {
 }
 
 bureau_git_status () {
-  _INDEX=$(command git status --porcelain -b 2> /dev/null)
-  _STATUS=""
-  if $(echo "$_INDEX" | grep '^[AMRD]. ' &> /dev/null); then
-    _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_STAGED"
-  fi
-  if $(echo "$_INDEX" | grep '^.[MTD] ' &> /dev/null); then
-    _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_UNSTAGED"
-  fi
-  if $(echo "$_INDEX" | grep -E '^\?\? ' &> /dev/null); then
-    _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_UNTRACKED"
-  fi
-  if $(echo "$_INDEX" | grep '^UU ' &> /dev/null); then
-    _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_UNMERGED"
-  fi
-  if $(command git rev-parse --verify refs/stash >/dev/null 2>&1); then
-    _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_STASHED"
-  fi
-  if $(echo "$_INDEX" | grep '^## .*ahead' &> /dev/null); then
-    _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_AHEAD"
-  fi
-  if $(echo "$_INDEX" | grep '^## .*behind' &> /dev/null); then
-    _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_BEHIND"
-  fi
-  if $(echo "$_INDEX" | grep '^## .*diverged' &> /dev/null); then
-    _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_DIVERGED"
-  fi
-
-  echo $_STATUS
+  #_INDEX=$(command git status --porcelain -b 2> /dev/null)
+  #_STATUS=""
+  #if $(echo "$_INDEX" | grep '^[AMRD]. ' &> /dev/null); then
+  #  _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_STAGED"
+  #fi
+  #if $(echo "$_INDEX" | grep '^.[MTD] ' &> /dev/null); then
+  #  _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_UNSTAGED"
+  #fi
+  #if $(echo "$_INDEX" | grep -E '^\?\? ' &> /dev/null); then
+  #  _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_UNTRACKED"
+  #fi
+  #if $(echo "$_INDEX" | grep '^UU ' &> /dev/null); then
+  #  _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_UNMERGED"
+  #fi
+  #if $(command git rev-parse --verify refs/stash >/dev/null 2>&1); then
+  #  _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_STASHED"
+  #fi
+  #if $(echo "$_INDEX" | grep '^## .*ahead' &> /dev/null); then
+  #  _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_AHEAD"
+  #fi
+  #if $(echo "$_INDEX" | grep '^## .*behind' &> /dev/null); then
+  #  _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_BEHIND"
+  #fi
+  #if $(echo "$_INDEX" | grep '^## .*diverged' &> /dev/null); then
+  #  _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_DIVERGED"
+  #fi
+#
+#  echo $_STATUS
 }
 
 bureau_git_prompt () {
