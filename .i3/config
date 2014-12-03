@@ -17,9 +17,9 @@ exec --no-startup-id gnome-sound-applet
 exec --no-startup-id davmail
 exec --no-startup-id tiddlywiki ~/defaultwiki --server
 
-exec --no-startup-id xautolock -time 10 -locker 'i3lock -d' &
-
 exec --no-startup-id xflux -z 21045
+
+exec --no-startup-id xautolock -time 10 -locker 'i3lock -d' &
 set $mod Mod4
 bindsym $mod+Mod1+l exec i3lock -d
 bindsym $mod+n exec nemo --no-desktop
