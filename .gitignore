@@ -1,5 +1,6 @@
 ownCloud/
 .eclipse/
+.vim/.netrwhist
 .cache/
 .config/
 .local/
