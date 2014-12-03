@@ -1,4 +1,5 @@
 ownCloud/
+.vim/.netrwhist
 .cache/
 .config/
 .local/
