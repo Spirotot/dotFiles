@@ -3,4 +3,8 @@
 	url = https://github.com/gmarik/vundle.git
 [submodule ".vim/bundle/YouCompleteMe"]
 	path = .vim/bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe.git
+    url = https://github.com/Valloric/YouCompleteMe.git
+    ignore = dirty
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
