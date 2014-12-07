@@ -30,9 +30,9 @@ bindsym $mod+x move workspace to output right
 bindsym $mod+z move workspace to output left
 
 # volume controls http://www.linux.com/learn/tutorials/766143-how-to-use-the-superfast-i3-tiling-window-manager-on-linux
-bindsym $mod+Next exec pactl set-sink-volume 1 -- -10%
-bindsym $mod+Prior exec pactl set-sink-volume 1 -- +10%
-bindsym $mod+Home exec pactl set-sink-mute 1 -- toggle
+bindsym $mod+Next exec pactl set-sink-volume 0 -- -10%
+bindsym $mod+Prior exec pactl set-sink-volume 0 -- +10%
+bindsym $mod+Home exec pactl set-sink-mute 0 -- toggle
 
 # font for window titles. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
