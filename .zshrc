@@ -1,4 +1,6 @@
 # Path to your oh-my-zsh installation.
+HISTSIZE=10000
+SAVEHIST=10000
 export ZSH=$HOME/.oh-my-zsh
 alias vi=vim
 # Set name of the theme to load.
