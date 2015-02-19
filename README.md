@@ -12,4 +12,5 @@ git checkout -t origin/[branch]
 
 
 #YouCompleteMe installation
-https://github.com/Valloric/YouCompleteMe#ubuntu-linux-x64-super-quick-installation
+1. https://github.com/Valloric/YouCompleteMe#ubuntu-linux-x64-super-quick-installation
+2. `vim +BundleInstall +qall` (Thanks to http://christopherpoole.github.io/setting-up-vim-with-YouCompleteMe/)
