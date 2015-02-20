@@ -5,6 +5,7 @@ syntax on
 set clipboard=unnamed
 set number
 set tabstop=4 shiftwidth=4 expandtab
+set t_Co=16
 
 set nocompatible
 filetype off
