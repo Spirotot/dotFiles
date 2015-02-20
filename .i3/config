@@ -20,6 +20,7 @@ exec --no-startup-id tiddlywiki ~/defaultwiki --server
 exec --no-startup-id xautolock -time 10 -locker 'i3lock -d' &
 
 exec --no-startup-id xflux -z 21045
+
 set $mod Mod4
 bindsym $mod+Mod1+l exec i3lock -d
 bindsym $mod+n exec nemo --no-desktop
@@ -157,6 +158,6 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         #status_command i3status
-	status_command py3status -c /etc/i3status.conf
+	status_command py3status -c ~/.i3/i3status.conf
 }
 
