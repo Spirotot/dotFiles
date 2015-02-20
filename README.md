@@ -20,3 +20,4 @@ sudo pip install py3status
 #Solarized Colors
 1. `cd ~/solarized/gnome-terminal-colors-solarized`
 2. `./install.sh` # follow prompts.
+3. `cp ~/solarized/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/solarized.vim` # Installs vim colors.
