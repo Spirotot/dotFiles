@@ -21,3 +21,6 @@ sudo pip install py3status
 1. `cd ~/solarized/gnome-terminal-colors-solarized`
 2. `./install.sh` # follow prompts.
 3. `cp ~/solarized/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/solarized.vim` # Installs vim colors.
+
+#Misc
+1. `git config --global core.editor "vim"` # Make vim default git editor.
