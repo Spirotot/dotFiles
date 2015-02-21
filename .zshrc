@@ -1,4 +1,6 @@
 # Path to your oh-my-zsh installation.
+HISTSIZE=10000
+SAVEHIST=10000
 export ZSH=$HOME/.oh-my-zsh
 alias vi=vim
 # Set name of the theme to load.
@@ -78,3 +80,19 @@ export PATH="/home/fieldad1/bin/jdk1.7.0_45/bin/:/home/fieldad1/bin:/usr/local/s
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+sshmounthome ()
+{
+    user=`whoami`
+    host=$1
+    remotepath=/home/$user
+    localpath=/home/mnt/$user/$host
+
+    if [ ! -d $localpath ]; then
+        sudo ln -s /media/$user ~/mnt
+        sudo mkdir -p $localpath
+        sudo chown -R $user:$user $localpath
+    fi
+    sshfs $host:$remotepath $localpath
+    cd $localpath
+}
