@@ -86,7 +86,7 @@ sshmounthome ()
     user=`whoami`
     host=$1
     remotepath=/home/$user
-    localpath=/home/mnt/$user/$host
+    localpath=/home/$user/mnt/$host
 
     if [ ! -d $localpath ]; then
         sudo ln -s /media/$user ~/mnt
