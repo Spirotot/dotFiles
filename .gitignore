@@ -14,3 +14,20 @@ ownCloud/
 .gnome/
 .cinnamon/
 Downloads/
+.AndroidStudio/
+.android/
+.gradle/
+.java/
+.m2/
+Android/
+.nv/
+AndroidstudioProjects/
+Documents/
+Pictures/
+Projects/
+.purple/
+.ti/
+VirtualBox\ VMs
+android-sdks
+*wiki*
+*workspace*
