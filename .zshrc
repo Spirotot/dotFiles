@@ -80,3 +80,19 @@ export PATH="/home/fieldad1/bin/jdk1.7.0_45/bin/:/home/fieldad1/bin:/usr/local/s
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+sshmounthome ()
+{
+    user=`whoami`
+    host=$1
+    remotepath=/home/$user
+    localpath=/home/$user/mnt/$host
+
+    if [ ! -d $localpath ]; then
+        sudo ln -s /media/$user ~/mnt
+        sudo mkdir -p $localpath
+        sudo chown -R $user:$user $localpath
+    fi
+    sshfs $host:$remotepath $localpath
+    cd $localpath
+}
