@@ -25,3 +25,6 @@ sudo pip install py3status
 #Misc
 1. `git config --global core.editor "vim"` # Make vim default git editor.
 2. `git config --global merge.tool meld` # Make meld the default git mergetool.
+
+#Screenshot
+![Desktop](https://blog.spirotot.com/content/images/2015/04/desktop2.png)
