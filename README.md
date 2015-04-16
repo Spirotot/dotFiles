@@ -2,7 +2,7 @@
 
 Working on enumerating useful packages to use to get things rolling upon installation...
 
-sudo apt-get install zsh openssh-server mosh build-essential cmake python-dev git vim dmenu i3-wm i3lock i3status python-pip fonts-inconsolata tig chromium-browser meld sshfs
+sudo apt-get install zsh openssh-server mosh build-essential cmake python-dev git vim dmenu i3-wm i3lock i3status python-pip fonts-inconsolata tig chromium-browser meld sshfs numlockx
 
 sudo pip install py3status
 
