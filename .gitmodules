@@ -11,3 +11,6 @@
 [submodule "solarized/vim-colors-solarized"]
 	path = solarized/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
+	url = https://github.com/Spirotot/oh-my-zsh.git
