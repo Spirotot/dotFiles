@@ -25,13 +25,19 @@ if [ -f ~/bin/last_workout ]; then
 fi
 
 while [ 1 = 1 ]; do
-    read -p "Do ${workouts[$index]}, and press Enter when done."
+    echo "Do ${workouts[$index]}."
+    echo "When finished, enter new timer value, or just Enter to keep current $limit minute timer: "
+    read tmplimit
+
+    if [ "X$tmplimit" != "X" ]; then
+        limit=$tmplimit
+    fi
 
     echo $index > ~/bin/last_workout
 
     counter=0
     while [ $counter != $limit ]; do
-       echo "$counter minutes so far...";
+       echo "$counter of $limit minutes so far...";
        sleep 60
        let "counter = $counter + 1"
     done
