@@ -1,8 +1,22 @@
 # Path to your oh-my-zsh installation.
-HISTSIZE=10000
-SAVEHIST=10000
+
+#http://www.lowlevelmanager.com/2012/04/zsh-history-extend-and-persist.html
+setopt APPEND_HISTORY
+HISTSIZE=120000
+SAVEHIST=100000
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt EXTENDED_HISTORY
+
 export ZSH=$HOME/.oh-my-zsh
+
 alias vi=vim
+alias tl="task list"
+alias tn="task"
+
+function ta() {
+    task add "$@"
+}
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -28,7 +42,7 @@ ZSH_THEME="bureau"
  ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
- COMPLETION_WAITING_DOTS="true"
+ #COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -96,3 +110,19 @@ sshmounthome ()
     sshfs $host:$remotepath $localpath
     cd $localpath
 }
+
+ne() {
+    vim -c ":Note $*"
+}
+
+# Load zsh-syntax-highlighting.
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Load zsh-autosuggestions.
+source ~/.zsh/zsh-autosuggestions/autosuggestions.zsh
+
+# Enable autosuggestions automatically.
+zle-line-init() {
+    zle autosuggest-start
+}
+zle -N zle-line-init
