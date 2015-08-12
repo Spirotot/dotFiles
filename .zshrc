@@ -1,5 +1,4 @@
 # Path to your oh-my-zsh installation.
-
 #http://www.lowlevelmanager.com/2012/04/zsh-history-extend-and-persist.html
 setopt APPEND_HISTORY
 HISTSIZE=120000
@@ -116,6 +115,9 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Load zsh-autosuggestions.
 source ~/.zsh/zsh-autosuggestions/autosuggestions.zsh
+
+
+AUTOSUGGESTION_HIGHLIGHT_COLOR='fg=5,bg=2'
 
 # Enable autosuggestions automatically.
 zle-line-init() {
