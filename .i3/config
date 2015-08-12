@@ -9,6 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+set $mod Mod4
 bindsym $mod+Shift+P exec ~/bin/suspendandlock.sh
 
 exec gnome-settings-daemon
@@ -21,7 +22,6 @@ exec --no-startup-id xautolock -time 10 -locker 'i3lock -d' &
 
 exec --no-startup-id xflux -z 21045
 
-set $mod Mod4
 bindsym $mod+Mod1+l exec i3lock -d
 bindsym $mod+n exec nemo --no-desktop
 bindsym $mod+x move workspace to output right
