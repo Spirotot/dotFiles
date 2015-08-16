@@ -22,6 +22,8 @@ exec --no-startup-id xautolock -time 10 -locker 'i3lock -d' &
 
 exec --no-startup-id xflux -z 21045
 
+#KVM switch.
+bindsym $mod+Mod1+k exec ~/bin/kvm.sh
 bindsym $mod+Mod1+l exec i3lock -d
 bindsym $mod+n exec nemo --no-desktop
 bindsym $mod+x move workspace to output right
