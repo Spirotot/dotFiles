@@ -23,10 +23,13 @@
 	url = https://github.com/mattn/calendar-vim.git
 [submodule ".vim/bundle/vim-expand-region"]
 	path = .vim/bundle/vim-expand-region
-	url = https://github.com/vim-scripts/vim-expand-region.git
+    url = https://github.com/vim-scripts/vim-expand-region.git
+[submodule ".vim/bundle/taskwiki"]
+    path = .vim/bundle/taskwiki
+    url = https://github.com/tbabej/taskwiki.git
 [submodule ".zsh/zsh-syntax-highlighting"]
 	path = .zsh/zsh-syntax-highlighting
     url = git://github.com/jimmijj/zsh-syntax-highlighting
 [submodule ".zsh/zsh-autosuggestions"]
 	path = .zsh/zsh-autosuggestions
-	url = git://github.com/tarruda/zsh-autosuggestions 
+    url = git://github.com/tarruda/zsh-autosuggestions 
