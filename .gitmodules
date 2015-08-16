@@ -15,3 +15,18 @@
 [submodule "solarized/vim-colors-solarized"]
 	path = solarized/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule ".vim/bundle/ag.vim"]
+	path = .vim/bundle/ag.vim
+	url = https://github.com/rking/ag.vim.git
+[submodule ".vim/bundle/calendar-vim"]
+	path = .vim/bundle/calendar-vim
+	url = https://github.com/mattn/calendar-vim.git
+[submodule ".vim/bundle/vim-expand-region"]
+	path = .vim/bundle/vim-expand-region
+	url = https://github.com/vim-scripts/vim-expand-region.git
+[submodule ".zsh/zsh-syntax-highlighting"]
+	path = .zsh/zsh-syntax-highlighting
+    url = git://github.com/jimmijj/zsh-syntax-highlighting
+[submodule ".zsh/zsh-autosuggestions"]
+	path = .zsh/zsh-autosuggestions
+	url = git://github.com/tarruda/zsh-autosuggestions 
