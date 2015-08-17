@@ -37,3 +37,7 @@
 	path = .vim/bundle/vimwiki
     url = https://github.com/vimwiki/vimwiki.git
     branch = dev
+[submodule ".vim/bundle/tasklib"]
+    path = .vim/bundle/tasklib
+    url = https://github.com/tbabej/tasklib.git
+    branch = develop
