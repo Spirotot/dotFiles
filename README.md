@@ -9,7 +9,7 @@ sudo pip install py3status
 #Installing this repo
 1. `cd ~/`
 2. `git remote add origin https://github.com/Spirotot/dotFiles.git`
-3. `git submodule update --init --recursive`
+3. `git submodule update --init --recursive --remote`
 4. `git checkout -t origin/[branch]`
 
 
