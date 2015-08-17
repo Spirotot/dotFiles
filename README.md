@@ -17,6 +17,12 @@ sudo pip install py3status
 1. https://github.com/Valloric/YouCompleteMe#ubuntu-linux-x64-super-quick-installation
 2. `vim +BundleInstall +qall` (Thanks to http://christopherpoole.github.io/setting-up-vim-with-YouCompleteMe/)
 
+#tasklib installation
+Need 'develop' version from GitHub for [taskwiki](https://github.com/tbabej/taskwiki) to work properly.
+1. `cd ~/.vim/bundle`
+2. (if the submodule didn't do it's thing like it's supposed to...) `git clone https://github.com/tbabej/tasklib.git && cd tasklib && git checkout develop && cd ../`
+3. `cd tasklib && sudo python setup.py build && sudo python setup.py install`
+
 #Solarized Colors
 1. `cd ~/solarized/gnome-terminal-colors-solarized`
 2. `./install.sh` # follow prompts.
