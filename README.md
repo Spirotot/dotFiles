@@ -17,13 +17,14 @@ sudo pip install py3status
 1. https://github.com/Valloric/YouCompleteMe#ubuntu-linux-x64-super-quick-installation
 2. `vim +BundleInstall +qall` (Thanks to http://christopherpoole.github.io/setting-up-vim-with-YouCompleteMe/)
 
-#TaskWarrior installation
+#TaskWarrior
 We need to install most TaskWarrior things from source to make sure that everything works with [taskwiki](https://github.com/tbabej/taskwiki).
 ##TaskWarrior installation
 1. Grab latest stable release from http://taskwarrior.org/download (must be v2.4.0 or greater to work with our setup...) `wget http://taskwarrior.org/download/task-2.4.4.tar.gz`
 2. Remove any installed versions if necessary. `sudo apt-get remove --purge task`
 3. `unp task-2.4.4.tar.gz && rm task-2.4.4.tar.gz`
 4. `cd task-2.4.4 && cmake -DCMAKE_BUILD_TYPE=release . && make -j8 && sudo make install`
+
 ##tasklib installation
 Need 'develop' branch from GitHub for [taskwiki](https://github.com/tbabej/taskwiki) to work properly.
 1. `cd ~/.vim/bundle`
