@@ -27,6 +27,7 @@ We need to install most TaskWarrior things from source to make sure that everyth
 
 ##tasklib installation
 Need 'develop' branch from GitHub for [taskwiki](https://github.com/tbabej/taskwiki) to work properly.
+
 1. `cd ~/.vim/bundle`
 2. (if the submodule didn't do it's thing like it's supposed to...) `git clone https://github.com/tbabej/tasklib.git && cd tasklib && git checkout develop && cd ../`
 3. `cd tasklib && sudo python setup.py build && sudo python setup.py install`
