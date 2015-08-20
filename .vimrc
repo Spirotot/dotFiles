@@ -22,6 +22,7 @@ let g:vimwiki_ext2syntax = {'.md': 'markdown', '.wiki': 'default'}
 let g:vimwiki_folding='expr'
 let mapleader="\<Space>"
 syntax on
+set autochdir
 set clipboard=unnamed
 set number
 set tabstop=4 shiftwidth=4 expandtab
@@ -72,4 +73,5 @@ function! ToggleCalendar()
     let g:calendar_open = 1
   end
 endfunction
-:autocmd FileType vimwiki map c :call ToggleCalendar()<CR>
+
+:autocmd FileType vimwiki map <leader>c :call ToggleCalendar()<CR>
