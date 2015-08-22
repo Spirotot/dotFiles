@@ -26,7 +26,7 @@
     url = https://github.com/vim-scripts/vim-expand-region.git
 [submodule ".vim/bundle/taskwiki"]
     path = .vim/bundle/taskwiki
-    url = https://github.com/tbabej/taskwiki.git
+    url = https://github.com/Spirotot/taskwiki.git
 [submodule ".zsh/zsh-syntax-highlighting"]
 	path = .zsh/zsh-syntax-highlighting
     url = git://github.com/jimmijj/zsh-syntax-highlighting
