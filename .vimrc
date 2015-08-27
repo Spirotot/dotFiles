@@ -72,4 +72,6 @@ function! ToggleCalendar()
     let g:calendar_open = 1
   end
 endfunction
+
 :autocmd FileType vimwiki map c :call ToggleCalendar()<CR>
+:autocmd FileType vimwiki set spell spelllang=en_us
