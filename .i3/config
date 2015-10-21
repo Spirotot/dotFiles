@@ -132,7 +132,16 @@ bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+E exit
 
+# Scratchpad stuff
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+# Make some windows open in floating mode...
 for_window [class="(?i)gcalctool"] floating enable
+for_window [class="(?i)nvidia-settings"] floating enable
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
