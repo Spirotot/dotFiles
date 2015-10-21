@@ -76,3 +76,4 @@ endfunction
 
 :autocmd FileType vimwiki map <leader>c :call ToggleCalendar()<CR>
 :autocmd FileType vimwiki set spell spelllang=en_us
+:autocmd CursorHold,CursorHoldI * update
