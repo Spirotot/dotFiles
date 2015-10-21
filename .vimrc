@@ -39,6 +39,10 @@ set mouse=r
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
+"Easier moving of code blocks
+vnoremap < <gv
+vnoremap > >gv
+
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
