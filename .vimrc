@@ -21,6 +21,10 @@ let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.wiki': 'default'}
 let g:vimwiki_folding='expr'
 let mapleader="\<Space>"
+
+"AutoSave
+let g:auto_save = 1
+
 syntax on
 set autochdir
 set clipboard=unnamed
@@ -28,6 +32,8 @@ set number
 set tabstop=4 shiftwidth=4 expandtab
 set backspace=indent,eol,start
 set t_Co=16
+"https://unix.stackexchange.com/questions/139578/copy-paste-for-vim-is-not-working-when-mouse-set-mouse-a-is-on
+set mouse=r
 
 "Mappings for expand-region.
 vmap v <Plug>(expand_region_expand)
@@ -59,6 +65,7 @@ Bundle 'taskwiki'
 Bundle 'vim-expand-region'
 Bundle 'rking/ag.vim'
 Bundle 'mattn/calendar-vim'
+Bundle 'vim-auto-save'
 
 filetype plugin indent on
 set background=dark
