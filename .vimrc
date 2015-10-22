@@ -48,6 +48,9 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+"tagbar
+nmap <F8> :TagbarToggle<CR>
+
 "easy way to save a file with <Space>w
 "http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 nnoremap <Leader>w :w<CR>
@@ -66,6 +69,7 @@ Bundle 'vim-expand-region'
 Bundle 'rking/ag.vim'
 Bundle 'mattn/calendar-vim'
 Bundle 'vim-auto-save'
+Bundle 'tagbar'
 
 filetype plugin indent on
 set background=dark

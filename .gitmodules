@@ -47,3 +47,6 @@
 	url = https://github.com/tbabej/tasklib.git
 [submodule "dd44e7a4b6a175a6d88d16ccb2bd6ca05f6d9dc5 .vim/bundle/tasklib (0.4.1-263-gdd44e7a)"]
 	branch = develop
+[submodule ".vim/bundle/tagbar"]
+	path = .vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git
