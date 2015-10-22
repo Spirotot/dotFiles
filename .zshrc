@@ -11,6 +11,7 @@ export ZSH=$HOME/.oh-my-zsh
 alias vi=vim
 alias tl="task list"
 alias tn="task"
+alias go="gnome-open"
 
 function ta() {
     task add "$@"
