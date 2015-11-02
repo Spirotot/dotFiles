@@ -22,8 +22,14 @@ let g:vimwiki_ext2syntax = {'.md': 'markdown', '.wiki': 'default'}
 let g:vimwiki_folding='expr'
 let mapleader="\<Space>"
 
+"Airline
+"let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='solarized'
+set laststatus=2
+"set ttimeoutlen=50
 "AutoSave
-let g:auto_save = 1
+"let g:auto_save = 1
 
 syntax on
 set autochdir
@@ -50,6 +56,20 @@ nnoremap <C-H> <C-W><C-H>
 
 "tagbar
 nmap <F8> :TagbarToggle<CR>
+let g:tagbar_type_vimwiki = {
+    \ 'ctagstype': 'vimwiki',
+    \ 'ctagsbin' : $HOME . '/bin/markdown2ctags/markdown2ctags.py',
+    \ 'ctagsargs' : '-f - --sort=yes',
+    \ 'kinds' : [
+        \ 's:sections',
+        \ 'i:images'
+    \ ],
+    \ 'sro' : '|',
+    \ 'kind2scope' : {
+        \ 's' : 'section',
+    \ },
+    \ 'sort': 0,
+\ }
 
 "easy way to save a file with <Space>w
 "http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
@@ -68,8 +88,9 @@ Bundle 'taskwiki'
 Bundle 'vim-expand-region'
 Bundle 'rking/ag.vim'
 Bundle 'mattn/calendar-vim'
-Bundle 'vim-auto-save'
+"Bundle 'vim-auto-save'
 Bundle 'tagbar'
+Bundle 'bling/vim-airline'
 
 filetype plugin indent on
 set background=dark

@@ -50,3 +50,9 @@
 [submodule ".vim/bundle/tagbar"]
 	path = .vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
+[submodule "bin/markdown2ctags"]
+	path = bin/markdown2ctags
+	url = https://github.com/jszakmeister/markdown2ctags.git
+[submodule "/home/fieldad1/.vim/bundle/vim-airline"]
+	path = .vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline
