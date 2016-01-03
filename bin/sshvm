@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+import os
+import sys
+import argparse
+
+def main(targetHost, targetUser=None, vmmapFilename="~/.vmmap"):
+    vmmapFilename=os.path.expanduser(vmmapFilename)
+    if os.path.isfile(vmmapFilename):
+        vmmap = dict()
+        with open(vmmapFilename) as vmmapFile:
+            for line in vmmapFile:
+                line = line.strip().split()
+                host = line[0].strip()
+                port = line[1].strip()
+                vmmap[host]=port
+        if targetHost in vmmap:
+            os.system("ssh -p %s localhost" % (vmmap[host]))
+        else:
+            print("Unable to find %s in %s" % (targetHost, vmmapFile))
+    else:
+        print("Could not find map file: %s" % (vmmapFilename))
+
+
+if __name__=="__main__":
+    main(sys.argv[1]) 
