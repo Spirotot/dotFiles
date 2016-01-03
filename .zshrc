@@ -1,27 +1,84 @@
 # Path to your oh-my-zsh installation.
+#set -x
+#source ~/.antigen/antigen.zsh
+source /usr/share/zsh/scripts/antigen/antigen.zsh
 #http://www.lowlevelmanager.com/2012/04/zsh-history-extend-and-persist.html
 setopt APPEND_HISTORY
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushdminus
 HISTSIZE=120000
 SAVEHIST=100000
+HISTFILE=~/.zsh_history
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt EXTENDED_HISTORY
 
-export ZSH=$HOME/.oh-my-zsh
 
 alias vi=vim
+alias ls="ls -F --color"
 alias tl="task list"
 alias tn="task"
 alias go="gnome-open"
+alias b="git branch"
+alias systemupdate="yaourt -Syua"
+antigen bundle git
+antigen bundle docker
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-completions src
+antigen bundle pip
+antigen bundle command-not-found
+antigen bundle taskwarrior
+antigen bundle python
+antigen bundle systemd
+antigen bundle gnu-utils
+antigen bundle joel-porquet/zsh-dircolors-solarized # This uses `dircolors` to populate LS_COLORS with the proper solarized colors...
+source ~/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/lib/nvm.zsh
+autoload -U colors && colors # https://stackoverflow.com/questions/26829821/zsh-theme-not-working-properly-on-osx
+antigen theme bureau
+#antigen theme blinks
+#export TERM=rxvt-unicode-256color
 
+autoload -Uz compinit
+compinit
+
+antigen apply
+
+zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+zstyle ':completion:*' menu select
+
+# https://github.com/nviennot/zsh-config/blob/master/lib/completion.zsh
+unsetopt menu_complete
+setopt auto_menu
+setopt complete_in_word
+setopt always_to_end
+if [ "x$CASE_SENSITIVE" = "xtrue" ]; then
+  zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+  unset CASE_SENSITIVE
+else
+  if [ "x$HYPHEN_INSENSITIVE" = "xtrue" ]; then
+    zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+    unset HYPHEN_INSENSITIVE
+  else
+    zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+  fi
+fi
 function ta() {
     task add "$@"
+}
+
+function calc () {
+    bc <<< "$@"
+}
+
+function h() {
+    hamster "$@"
 }
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="bureau"
+#ZSH_THEME="bureau"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -61,9 +118,9 @@ ZSH_THEME="bureau"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+#plugins=(git)
 
-source $ZSH/oh-my-zsh.sh
+#source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -103,25 +160,59 @@ sshmounthome ()
     localpath=/home/$user/mnt/$host
 
     if [ ! -d $localpath ]; then
-        sudo ln -s /media/$user ~/mnt
+        #sudo ln -s /media/$user ~/mnt
         sudo mkdir -p $localpath
-        sudo chown -R $user:$user $localpath
+        sudo chown -R $user $localpath
     fi
     sshfs $host:$remotepath $localpath
     cd $localpath
 }
 
 # Load zsh-syntax-highlighting.
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Load zsh-autosuggestions.
-source ~/.zsh/zsh-autosuggestions/autosuggestions.zsh
+#source ~/.zsh/zsh-autosuggestions/autosuggestions.zsh
 
 
-AUTOSUGGESTION_HIGHLIGHT_COLOR='fg=5,bg=2'
+#AUTOSUGGESTION_HIGHLIGHT_COLOR='fg=5,bg=2'
 
 # Enable autosuggestions automatically.
-zle-line-init() {
-    zle autosuggest-start
+#zle-line-init() {
+#    zle autosuggest-start
+#}
+#zle -N zle-line-init
+#
+
+bindkey '^[[1~' beginning-of-line
+bindkey '^[[4~' end-of-line
+bindkey '^[[Z' reverse-menu-complete
+
+bindkey -v
+
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word
+bindkey '^r' history-incremental-search-backward
+
+function zle-line-init zle-keymap-select {
+    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
+    curdir=`pwd`
+    user=`whoami`
+    if [[ $curdir == /home/$user/mnt/* ]]; then
+        ssh-keygen -F `basename $curdir` > /dev/null 2>&1
+        if [ $? -eq 0 ]; then
+            RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
+        fi
+    else
+        RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$(bureau_git_prompt) $EPS1"
+    fi
+    zle reset-prompt
 }
+
 zle -N zle-line-init
+zle -N zle-keymap-select
+export KEYTIMEOUT=1
+
