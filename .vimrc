@@ -35,7 +35,7 @@ syntax on
 set autochdir
 set clipboard=unnamed
 set number
-set tabstop=4 shiftwidth=4 expandtab
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set backspace=indent,eol,start
 set t_Co=16
 "https://unix.stackexchange.com/questions/139578/copy-paste-for-vim-is-not-working-when-mouse-set-mouse-a-is-on
