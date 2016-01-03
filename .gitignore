@@ -36,3 +36,4 @@ android-sdks
 *.g*
 *Desktop*
 *tmp*
+bin/mount*

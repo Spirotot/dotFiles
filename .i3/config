@@ -15,7 +15,11 @@ bindsym $mod+Shift+P exec ~/bin/suspendandlock.sh
 exec gnome-settings-daemon
 exec --no-startup-id nm-applet
 exec --no-startup-id gnome-sound-applet
-#exec --no-startup-id davmail
+exec --no-startup-id urxvtd -o -f -q
+exec --no-startup-id davmail
+exec --no-startup-id redshift-gtk
+exec --no-startup-id /usr/local/lib/hamster-time-tracker/hamster-service
+exec --no-startup-id /usr/local/lib/hamster-time-tracker/hamster-windows-service
 #exec --no-startup-id tiddlywiki ~/defaultwiki --server
 
 exec --no-startup-id xautolock -time 10 -locker 'i3lock -d' &
@@ -31,10 +35,13 @@ bindsym $mod+n exec nemo --no-desktop
 bindsym $mod+x move workspace to output right
 bindsym $mod+z move workspace to output left
 
-# volume controls http://www.linux.com/learn/tutorials/766143-how-to-use-the-superfast-i3-tiling-window-manager-on-linux
-bindsym $mod+Next exec pactl set-sink-volume 0 -- -10%
-bindsym $mod+Prior exec pactl set-sink-volume 0 -- +10%
-bindsym $mod+Home exec pactl set-sink-mute 0 -- toggle
+# volume controls -- if they're not working, check the order of the soundcards -- the PCH/headphones one needs to be first. Putting "options snd_hda_intel index=1" into `/etc/modprobe.d/alsa-base.conf` might be helpful.
+bindsym $mod+Next exec amixer -c 0 set Master 5-
+bindsym $mod+Prior exec amixer -c 0 set Master 5+
+bindsym $mod+Home exec amixer -c 0 set Master toggle
+
+bindsym $mod+Shift+Next exec xbacklight -dec 10
+bindsym $mod+Shift+Prior exec xbacklight -inc 10
 
 # font for window titles. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -43,8 +50,8 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvtc
 # kill focused window
 bindsym $mod+Shift+Q kill
 
@@ -85,10 +92,10 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen
 
 # Make the currently focused window a scratchpad
-bindsym $mod+Shift+minus move scratchpad
+#bindsym $mod+Shift+minus move scratchpad
 
 # Show the first scratchpad window
-bindsym $mod+minus scratchpad show
+#bindsym $mod+minus scratchpad show
 
 # change container layout (stacked, tabbed, default)
 bindsym $mod+s layout stacking
@@ -136,7 +143,7 @@ bindsym $mod+Shift+C reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+E exit
+#bindsym $mod+Shift+E exit
 
 # Scratchpad stuff
 # Make the currently focused window a scratchpad
@@ -148,6 +155,7 @@ bindsym $mod+minus scratchpad show
 # Make some windows open in floating mode...
 for_window [class="(?i)gcalctool"] floating enable
 for_window [class="(?i)nvidia-settings"] floating enable
+for_window [class="(?i)hamster-windows-service"] floating enable
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -179,6 +187,6 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         #status_command i3status
-	status_command py3status -c ~/.i3/i3status.conf
+	status_command py3status -c ~/.i3/i3status.conf -i ~/.i3/py3status/modules/
 }
 
