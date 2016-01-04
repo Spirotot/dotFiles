@@ -1,6 +1,7 @@
 # Path to your oh-my-zsh installation.
 #set -x
-source ~/.antigen/antigen.zsh
+#source ~/.antigen/antigen.zsh
+source /usr/share/zsh/scripts/antigen/antigen.zsh
 #http://www.lowlevelmanager.com/2012/04/zsh-history-extend-and-persist.html
 setopt APPEND_HISTORY
 setopt auto_pushd
@@ -12,7 +13,8 @@ HISTFILE=~/.zsh_history
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt EXTENDED_HISTORY
 
-
+#window titles...
+source ~/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/lib/termsupport.zsh
 alias vi=vim
 alias ls="ls -F --color"
 alias tl="task list"
