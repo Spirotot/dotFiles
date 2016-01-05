@@ -1,6 +1,6 @@
 URxvt.termName: rxvt
 URxvt.intensityStyles: false
-Urxvt.font:             xft:inconsolata:size=10:antialias=true:hinting=true
+URxvt.font:             xft:inconsolata:size=10:antialias=true:hinting=true
 URxvt.scrollBar: false
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
@@ -8,10 +8,10 @@ URxvt.secondaryWheel: 1
 URxvt.perl-ext-common: default,matcher,vtwheel,resize-font
 URxvt.url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 1
+URxvt.resize-font.smaller: C-minus
+URxvt.resize-font.bigger: C-plus
 URxvt.iso14755: false
 URxvt.iso14755_52: false
-URxvt.resize-font.smaller: C-Down
-URxvt.resize-font.bigger: C-Up
 URxvt.keysym.Control-Up:   \033[1;5A
 URxvt.keysym.Control-Down:    \033[1;5B
 URxvt.keysym.Control-Left:    \033[1;5D
