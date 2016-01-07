@@ -4,6 +4,7 @@
 source /usr/share/zsh/scripts/antigen/antigen.zsh
 #http://www.lowlevelmanager.com/2012/04/zsh-history-extend-and-persist.html
 setopt APPEND_HISTORY
+setopt MENU_COMPLETE
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
@@ -47,6 +48,7 @@ antigen apply
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select
 
+bindkey '^[[Z' reverse-menu-complete
 # https://github.com/nviennot/zsh-config/blob/master/lib/completion.zsh
 unsetopt menu_complete
 setopt auto_menu
@@ -187,7 +189,6 @@ sshmounthome ()
 
 bindkey '^[[1~' beginning-of-line
 bindkey '^[[4~' end-of-line
-bindkey '^[[Z' reverse-menu-complete
 
 bindkey -v
 
