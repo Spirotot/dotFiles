@@ -12,7 +12,7 @@ SAVEHIST=100000
 HISTFILE=~/.zsh_history
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt EXTENDED_HISTORY
-
+#amixer set 'Beep' 0% mute > /dev/null 2>&1
 #window titles...
 source ~/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/lib/termsupport.zsh
 alias vi=vim
