@@ -4,6 +4,7 @@
 source /usr/share/zsh/scripts/antigen/antigen.zsh
 #http://www.lowlevelmanager.com/2012/04/zsh-history-extend-and-persist.html
 setopt APPEND_HISTORY
+setopt MENU_COMPLETE
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
@@ -12,7 +13,7 @@ SAVEHIST=100000
 HISTFILE=~/.zsh_history
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt EXTENDED_HISTORY
-
+#amixer set 'Beep' 0% mute > /dev/null 2>&1
 #window titles...
 source ~/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/lib/termsupport.zsh
 alias vi=vim
@@ -43,7 +44,7 @@ autoload -Uz compinit
 compinit
 
 antigen apply
-
+eval `dircolors ~/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joel-porquet-SLASH-zsh-dircolors-solarized.git/dircolors-solarized/dircolors.ansi-dark`
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select
 
@@ -187,7 +188,6 @@ sshmounthome ()
 
 bindkey '^[[1~' beginning-of-line
 bindkey '^[[4~' end-of-line
-bindkey '^[[Z' reverse-menu-complete
 
 bindkey -v
 
@@ -217,3 +217,4 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 export KEYTIMEOUT=1
 
+bindkey '^[[Z' reverse-menu-complete
