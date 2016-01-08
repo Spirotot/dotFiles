@@ -13,6 +13,7 @@ set $mod Mod4
 bindsym $mod+Shift+P exec ~/bin/suspendandlock.sh
 
 exec --no-startup-id dropbox start
+exec --no-startup-id owncloud
 exec --no-startup-id nm-applet
 exec --no-startup-id gnome-sound-applet
 exec --no-startup-id urxvtd -o -f -q
