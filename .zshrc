@@ -44,11 +44,10 @@ autoload -Uz compinit
 compinit
 
 antigen apply
-
+eval `dircolors ~/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joel-porquet-SLASH-zsh-dircolors-solarized.git/dircolors-solarized/dircolors.ansi-dark`
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select
 
-bindkey '^[[Z' reverse-menu-complete
 # https://github.com/nviennot/zsh-config/blob/master/lib/completion.zsh
 unsetopt menu_complete
 setopt auto_menu
@@ -218,3 +217,4 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 export KEYTIMEOUT=1
 
+bindkey '^[[Z' reverse-menu-complete
