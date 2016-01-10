@@ -20,7 +20,7 @@ alias vi=vim
 alias ls="ls -F --color"
 alias tl="task list"
 alias tn="task"
-alias go="gnome-open"
+alias xo="xdg-open"
 alias b="git branch"
 alias systemupdate="yaourt -Syua"
 antigen bundle git
