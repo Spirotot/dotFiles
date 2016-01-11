@@ -112,3 +112,6 @@ endfunction
 
 :autocmd FileType vimwiki map <leader>c :call ToggleCalendar()<CR>
 :autocmd FileType vimwiki set spell spelllang=en_us
+
+au FileType markdown setlocal wrap textwidth=80
+au FileType vimwiki setlocal wrap textwidth=80
