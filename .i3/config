@@ -13,6 +13,7 @@ set $mod Mod4
 bindsym $mod+Shift+P exec ~/bin/suspendandlock.sh
 
 exec --no-startup-id amixer set 'Beep' 0% mute > /dev/null 2>&1
+exec --no-startup-id feh --bg-center ~/background.jpg
 exec --no-startup-id dropbox start
 exec --no-startup-id owncloud
 exec --no-startup-id nm-applet
@@ -30,7 +31,8 @@ exec --no-startup-id xmodmap -e "add mod3 = Scroll_Lock"
 
 #KVM switch.
 bindsym $mod+Mod1+k exec ~/bin/kvm.sh
-bindsym $mod+Mod1+l exec i3lock -d
+#bindsym $mod+Mod1+l exec i3lock -d
+bindsym $mod+Mod1+l exec ~/bin/lock.sh
 bindsym $mod+n exec nemo --no-desktop
 bindsym $mod+x move workspace to output right
 bindsym $mod+z move workspace to output left
