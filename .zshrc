@@ -4,6 +4,7 @@
 source /usr/share/zsh/scripts/antigen/antigen.zsh
 #http://www.lowlevelmanager.com/2012/04/zsh-history-extend-and-persist.html
 setopt APPEND_HISTORY
+setopt inc_append_history
 setopt MENU_COMPLETE
 setopt auto_pushd
 setopt pushd_ignore_dups
