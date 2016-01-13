@@ -6,6 +6,8 @@ sudo apt-get install zsh openssh-server mosh build-essential cmake python-dev gi
 
 sudo pip install py3status
 
+urxvt-perls, urxvt-vtwheel
+
 #Installing this repo
 1. `cd ~/`
 2. `git remote add origin https://github.com/Spirotot/dotFiles.git`
@@ -40,3 +42,5 @@ Need 'develop' branch from GitHub for [taskwiki](https://github.com/tbabej/taskw
 #Misc
 1. `git config --global core.editor "vim"` # Make vim default git editor.
 2. `git config --global merge.tool meld` # Make meld the default git mergetool.
+3. Disable PC speaker:
+   https://wiki.archlinux.org/index.php/Disable_PC_speaker_beep#Globally
