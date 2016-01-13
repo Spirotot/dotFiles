@@ -12,6 +12,9 @@
 set $mod Mod4
 bindsym $mod+Shift+P exec ~/bin/suspendandlock.sh
 
+bindsym Print exec shutter -f
+bindsym $mod+Print exec shutter -s
+
 exec --no-startup-id amixer set 'Beep' 0% mute > /dev/null 2>&1
 exec --no-startup-id feh --bg-center ~/background.jpg
 exec --no-startup-id dropbox start
