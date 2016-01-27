@@ -49,10 +49,12 @@ vmap <C-v> <Plug>(expand_region_shrink)
 vnoremap < <gv
 vnoremap > >gv
 
+"Move between windows using CTRL+VIM navigation keys.
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
 
 "tagbar
 nmap <F8> :TagbarToggle<CR>
