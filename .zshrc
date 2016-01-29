@@ -66,7 +66,7 @@ else
   fi
 fi
 function ta() {
-    task add "$@"
+    task add $@
 }
 
 function calc () {
@@ -74,7 +74,19 @@ function calc () {
 }
 
 function h() {
-    hamster "$@"
+    hamster $@
+}
+
+#http://calnewport.com/blog/2013/12/21/deep-habits-the-importance-of-planning-every-minute-of-your-work-day/
+function godeep() {
+    if [[ "$1"X == "X" ]]
+    then
+        f=`date +%Y-%m-%d_%T`.md
+    else
+        f=$1.md
+    fi
+    cp -n ~/bin/deep_template.md $f # -n, do not overwrite an existing file.
+    vi $f
 }
 
 # Set name of the theme to load.
