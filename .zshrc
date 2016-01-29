@@ -14,7 +14,7 @@ SAVEHIST=100000
 HISTFILE=~/.zsh_history
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt EXTENDED_HISTORY
-
+#amixer set 'Beep' 0% mute > /dev/null 2>&1
 #window titles...
 source ~/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/lib/termsupport.zsh
 alias vi=vim
@@ -139,7 +139,7 @@ function godeep() {
 
 # User configuration
 
-export PATH="/home/fieldad1/bin/jdk1.7.0_45/bin/:/home/fieldad1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/fieldad1/bin/:/home/fieldad1/.cabal/bin/"
+export PATH="~/bin/jdk1.7.0_45/bin/:~/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:~/bin/:~/.cabal/bin/"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
