@@ -139,7 +139,7 @@ function godeep() {
 
 # User configuration
 
-export PATH="~/bin/jdk1.7.0_45/bin/:~/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:~/bin/:~/.cabal/bin/"
+export PATH=$PATH:"$HOME/bin/jdk1.7.0_45/bin/:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/bin/:$HOME/.cabal/bin/"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
