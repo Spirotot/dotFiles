@@ -127,7 +127,7 @@ function h() {
 
 # User configuration
 
-export PATH="/home/fieldad1/bin/jdk1.7.0_45/bin/:/home/fieldad1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/fieldad1/bin/:/home/fieldad1/.cabal/bin/"
+export PATH=$PATH:"$HOME/bin/jdk1.7.0_45/bin/:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/bin/:$HOME/.cabal/bin/"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

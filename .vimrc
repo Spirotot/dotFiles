@@ -45,6 +45,12 @@ set mouse=r
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
+"https://danielmiessler.com/study/vim/
+inoremap jk <ESC>
+
+"http://www.viemu.com/a-why-vi-vim.html
+set hlsearch
+
 "Easier moving of code blocks
 vnoremap < <gv
 vnoremap > >gv
