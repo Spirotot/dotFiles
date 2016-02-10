@@ -84,7 +84,9 @@ let g:tagbar_type_vimwiki = {
 nnoremap <Leader>w :w<CR>
 
 set nocompatible
-filetype off
+filetype plugin on
+
+
 
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
