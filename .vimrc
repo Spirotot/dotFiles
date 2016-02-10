@@ -99,6 +99,7 @@ Bundle 'mattn/calendar-vim'
 "Bundle 'vim-auto-save'
 Bundle 'tagbar'
 Bundle 'bling/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 
 filetype plugin indent on
 set background=dark
