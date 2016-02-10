@@ -44,3 +44,10 @@ Need 'develop' branch from GitHub for [taskwiki](https://github.com/tbabej/taskw
 2. `git config --global merge.tool meld` # Make meld the default git mergetool.
 3. Disable PC speaker:
    https://wiki.archlinux.org/index.php/Disable_PC_speaker_beep#Globally
+
+## Invalid signature on packages.
+Try updating your system GPG keys with `sudo pacman-key --refresh-keys`.
+
+If you're blocked by a firewall, edit the server in
+`/etc/pacman.d/gnupg/gpg.conf` to use the following server:
+`https://gpgtools.tenderapp.com/kb/faq/cant-reach-key-server-are-you-behind-a-company-firewall`
