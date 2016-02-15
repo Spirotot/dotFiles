@@ -34,7 +34,7 @@ def xcb_fetch_windows():
 def obscure_image(image):
   """ Obscures the given image. """
   size = image.size
-  pixel_size = 9
+  pixel_size = 12
 
   image = image.resize((size[0] / pixel_size, size[1] / pixel_size), Image.NEAREST)
   image = image.resize((size[0], size[1]), Image.NEAREST)
