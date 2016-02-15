@@ -44,7 +44,7 @@ def obscure_image(image):
 def obscure(rects):
   """ Takes an array of rects to obscure from the screenshot. """
   image = Image.open('/tmp/.i3lock.png')
-
+  rects = rects[1:]
   for rect in rects:
     area = (
       rect.x, rect.y,
