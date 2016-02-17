@@ -34,7 +34,7 @@ def xcb_fetch_windows():
 def obscure_image(image):
   """ Obscures the given image. """
   size = image.size
-  pixel_size = 9
+  pixel_size = 12
 
   image = image.resize((size[0] / pixel_size, size[1] / pixel_size), Image.NEAREST)
   image = image.resize((size[0], size[1]), Image.NEAREST)
@@ -44,8 +44,9 @@ def obscure_image(image):
 def obscure(rects):
   """ Takes an array of rects to obscure from the screenshot. """
   image = Image.open('/tmp/.i3lock.png')
-
   for rect in rects:
+    if rect.x < 0 or rect.y < 0:
+      continue
     area = (
       rect.x, rect.y,
       rect.x + rect.width,
