@@ -44,6 +44,7 @@ bindsym $mod+Next exec amixer -c 0 set Master 5-
 bindsym $mod+Prior exec amixer -c 0 set Master 5+
 bindsym $mod+Home exec amixer -c 0 set Master toggle
 
+# Screen brightness
 bindsym $mod+Shift+Next exec xbacklight -dec 10
 bindsym $mod+Shift+Prior exec xbacklight -inc 10
 
