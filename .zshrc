@@ -19,6 +19,7 @@ setopt EXTENDED_HISTORY
 source ~/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/lib/termsupport.zsh
 alias vi=vim
 alias ls="ls -F --color"
+alias l=ls
 alias tl="task list"
 alias tn="task"
 alias xo="xdg-open"
