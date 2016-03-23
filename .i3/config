@@ -35,7 +35,6 @@ exec --no-startup-id xmodmap -e "add mod3 = Scroll_Lock"
 bindsym $mod+Mod1+k exec ~/bin/kvm.sh
 #bindsym $mod+Mod1+l exec i3lock -d
 bindsym $mod+Mod1+l exec ~/bin/lock.sh
-bindsym $mod+n exec nemo --no-desktop
 bindsym $mod+x move workspace to output right
 bindsym $mod+z move workspace to output left
 
