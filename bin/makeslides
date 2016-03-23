@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cp -f ~/bin/slides/*.tex ~/bin/slides/*.sty .
+
+if [[ $1 = "nonotes" ]]; then
+    cp -f ~/bin/slides/Makefile.nonotes Makefile
+else
+    cp -f ~/bin/slides/Makefile.notes Makefile
+fi
+
+make
