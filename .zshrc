@@ -22,7 +22,6 @@ alias ls="ls -F --color"
 alias l=ls
 alias tl="task list"
 alias tn="task"
-alias xo="xdg-open"
 alias b="git branch"
 alias systemupdate="yaourt -Syua"
 antigen bundle git
@@ -66,6 +65,11 @@ else
     zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
   fi
 fi
+
+function xo() {
+    xdg-open "$@" &
+}
+
 function ta() {
     task add $@
 }
@@ -232,3 +236,5 @@ zle -N zle-keymap-select
 export KEYTIMEOUT=1
 
 bindkey '^[[Z' reverse-menu-complete
+
+eval $(keychain --eval --quiet id_rsa)
