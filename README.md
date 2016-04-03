@@ -49,6 +49,7 @@ Need 'develop' branch from GitHub for [taskwiki](https://github.com/tbabej/taskw
    https://wiki.archlinux.org/index.php/Disable_PC_speaker_beep#Globally
 4. [Enable IPv6 Privacy
    Extensions](https://wiki.archlinux.org/index.php/IPv6#Privacy_extensions)
+5. Adjust VGA monitors: https://superuser.com/questions/733201/two-identical-external-monitors-one-through-hdmi-another-vga-text-on-vga-looks (http://techmind.org/lcd/phasing.html)
 
 ## Invalid signature on packages.
 Try updating your system GPG keys with `sudo pacman-key --refresh-keys`.
