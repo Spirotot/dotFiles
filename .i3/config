@@ -18,6 +18,7 @@ bindsym $mod+Print exec shutter -s -e
 exec --no-startup-id amixer set 'Beep' 0% mute > /dev/null 2>&1
 exec --no-startup-id feh --bg-center ~/background.jpg
 exec --no-startup-id dropbox start
+exec --no-startup-id owncloud
 exec --no-startup-id nm-applet
 exec --no-startup-id gnome-sound-applet
 exec --no-startup-id urxvtd -o -f -q
