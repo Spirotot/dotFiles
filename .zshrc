@@ -17,11 +17,18 @@ setopt EXTENDED_HISTORY
 #amixer set 'Beep' 0% mute > /dev/null 2>&1
 #window titles...
 source ~/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/lib/termsupport.zsh
+
+function task() {
+    /bin/task $@
+    $(/bin/task sync >/dev/null 2>&1 &)
+}
+
 alias vi=vim
 alias ls="ls -F --color"
 alias l=ls
 alias tl="task list"
 alias tn="task"
+alias ts="task sync"
 alias b="git branch"
 alias systemupdate="yaourt -Syua"
 antigen bundle git
