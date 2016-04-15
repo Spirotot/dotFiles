@@ -77,6 +77,10 @@ function xo() {
     xdg-open "$@" &
 }
 
+function to() {
+    taskopen $@
+}
+
 function ta() {
     task add $@
 }

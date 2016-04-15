@@ -168,6 +168,7 @@ for_window [class="(?i)gcalctool"] floating enable
 for_window [class="(?i)nvidia-settings"] floating enable
 for_window [class="(?i)hamster-windows-service"] floating enable
 for_window [class="Thunderbird" instance="Msgcompose"] floating enable
+for_window [class="Thunderbird" instance="Calendar"] floating enable
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
