@@ -28,3 +28,11 @@ uda.est.type=duration
 uda.est.label=Est
 report.next.columns=id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.remaining,until.remaining,description,urgency,est
 report.next.labels=ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg,Est
+
+taskd.credentials=Public\/spirotot\/b4a5aa6f-6e99-48df-bc0b-44acf8c00d2f
+taskd.certificate=\/home\/spirotot\/.task\/spirotot.cert.pem
+taskd.key=\/home\/spirotot\/.task\/spirotot.key.pem
+taskd.ca=\/home\/spirotot\/.task\/ca.cert.pem
+taskd.server=tw.spirotot.com:53589
+journal.time=on
+
