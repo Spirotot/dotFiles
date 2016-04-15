@@ -249,3 +249,20 @@ export KEYTIMEOUT=1
 bindkey '^[[Z' reverse-menu-complete
 
 eval $(keychain --eval --quiet id_rsa)
+
+projects=$(projects_without_next_action.py)
+
+if [ "$projects" != "" ]
+then
+  echo $fg[red]"Attention: The following projects don't currently have a next action:"
+  echo -e "\x1b[4m"
+  echo $projects
+  echo -n $reset_color
+fi
+
+waiting=$(task +waiting +PENDING count)
+if [ "$waiting" != "0" ]
+then
+  echo "Any progress on these waiting-fors?"
+  task +waiting +PENDING ls
+fi

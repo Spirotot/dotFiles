@@ -26,8 +26,16 @@ data.location=~/.task
 #include /usr/share/task/dark-gray-256.theme
 uda.est.type=duration
 uda.est.label=Est
-report.next.columns=id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.remaining,until.remaining,description,urgency,est
-report.next.labels=ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg,Est
+
+uda.brainpower.type=string
+uda.brainpower.label=Brainpower
+uda.brainpower.values=H,M,L
+uda.brainpower.default=M
+
+report.next.columns=id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.remaining,until.remaining,description,urgency,brainpower,est
+report.next.labels=ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg,BP,Est
+report.next.filter = status:pending and +next
+report.next.sort=brainpower-,priority-,urgency-
 
 taskd.credentials=Public\/spirotot\/b4a5aa6f-6e99-48df-bc0b-44acf8c00d2f
 taskd.certificate=\/home\/spirotot\/.task\/spirotot.cert.pem
