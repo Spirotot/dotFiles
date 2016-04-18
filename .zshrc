@@ -19,8 +19,26 @@ setopt EXTENDED_HISTORY
 source ~/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/lib/termsupport.zsh
 
 function task() {
+    #set -x
     /bin/task $@
-    $(/bin/task sync >/dev/null 2>&1 &)
+
+    (
+        if [ -f /tmp/twsync.lock ]; then
+            kill $(cat /tmp/twsync.lock)
+        fi
+
+        echo `sh -c 'echo $PPID' &&` > /tmp/twsync.lock # crappy hack to get subshell's PID...
+        sleep 180
+        /bin/task sync >/dev/null 2>&1
+        rm ~/.task/sync.lock
+        
+    ) > /dev/null 2>&1 &!
+
+    #set +x
+}
+
+function td() {
+    task $@ done
 }
 
 alias vi=vim
@@ -29,6 +47,8 @@ alias l=ls
 alias tl="task list"
 alias tn="task"
 alias ts="task sync"
+alias in="task add +in"
+alias lin="task in"
 alias b="git branch"
 alias systemupdate="yaourt -Syua"
 antigen bundle git
@@ -228,16 +248,23 @@ bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
 
 function zle-line-init zle-keymap-select {
+    inbox_count=$(/bin/task +in +PENDING count)
+    if [[ $inbox_count > 0 ]]; then
+        inbox_count="%{$fg_bold[red]%}+in $inbox_count%{$reset_color%}"
+    else
+        inbox_count=""
+    fi
+
     VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
     curdir=`pwd`
     user=`whoami`
     if [[ $curdir == /home/$user/mnt/* ]]; then
-        ssh-keygen -F `basename $curdir` > /dev/null 2>&1
+        ssh-keygen -F `basename $curdir` > /dev/null 2>&1 # if the current folder is a known-host...
         if [ $? -eq 0 ]; then
-            RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
+            RPS1="$inbox_count ${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
         fi
     else
-        RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$(bureau_git_prompt) $EPS1"
+        RPS1="$inbox_count ${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$(bureau_git_prompt) $EPS1"
     fi
     zle reset-prompt
 }
@@ -260,7 +287,7 @@ then
   echo -n $reset_color
 fi
 
-waiting=$(task +waiting +PENDING count)
+waiting=$(/bin/task +waiting +PENDING count)
 if [ "$waiting" != "0" ]
 then
   echo "Any progress on these waiting-fors?"

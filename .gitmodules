@@ -58,4 +58,7 @@
         url = https://github.com/bling/vim-airline
 [submodule ".vim/bundle/vim-airline-themes"]
         path = .vim/bundle/vim-airline-themes
-        url = https://github.com/vim-airline/vim-airline-themes.git
+    url = https://github.com/vim-airline/vim-airline-themes.git
+[submodule ".task/hooks/task-relative-recur"]
+    path = .task/hooks/task-relative-recur
+    url = https://github.com/JensErat/task-relative-recur.git
