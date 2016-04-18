@@ -1,0 +1,221 @@
+% Beamer Color Theme using the Solarized Palette,
+% http://ethanschoonover.com/solarized.
+%
+% Copyright 2012 Jeffrey B. Arnold
+% 
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+\ProvidesPackage{beamercolorthemesolarized}[2013/10/11 1.0.1 Solarized color theme for beamer]
+\RequirePackage{etoolbox}
+\RequirePackage{kvoptions}
+
+%% This is ugly. First time using options and conditionals in LaTeX
+\SetupKeyvalOptions{
+  family=solarized,
+  prefix=solarized@,
+}
+\DeclareBoolOption[false]{dark}
+\DeclareComplementaryOption{light}{dark}
+\DeclareStringOption[yellow]{accent}[yellow]
+\ProcessKeyvalOptions*
+
+% Solarized palette
+\definecolor{solarizedBase03}{HTML}{002B36}
+\definecolor{solarizedBase02}{HTML}{073642}
+\definecolor{solarizedBase01}{HTML}{586e75}
+\definecolor{solarizedBase00}{HTML}{657b83}
+\definecolor{solarizedBase0}{HTML}{839496}
+\definecolor{solarizedBase1}{HTML}{93a1a1}
+\definecolor{solarizedBase2}{HTML}{EEE8D5}
+\definecolor{solarizedBase3}{HTML}{FDF6E3}
+\definecolor{solarizedYellow}{HTML}{B58900}
+\definecolor{solarizedOrange}{HTML}{CB4B16}
+\definecolor{solarizedRed}{HTML}{DC322F}
+\definecolor{solarizedMagenta}{HTML}{D33682}
+\definecolor{solarizedViolet}{HTML}{6C71C4}
+\definecolor{solarizedBlue}{HTML}{268BD2}
+\definecolor{solarizedCyan}{HTML}{2AA198}
+\definecolor{solarizedGreen}{HTML}{859900}
+\definecolor{solarizedOther}{HTML}{A57800}
+\definecolor{solarizedError}{HTML}{d30102}
+
+% solarizedOther and solarizedError come from: https://github.com/jeffbr13/benjeffrey.com/blob/master/posts/pandoc-syntax-highlighting-css.md
+
+% Make inline code blocks colored solarizedOrange
+% https://tex.stackexchange.com/questions/36455/how-can-i-ensure-all-teletype-monospaced-text-is-in-a-certain-color
+\let\Oldtexttt\texttt
+\renewcommand\texttt[1]{{\ttfamily\color{solarizedOrange}#1}}
+
+% Make not-inline code blocks colored solarizedOrange
+% https://tex.stackexchange.com/questions/43487/how-to-change-color-of-some-particular-environment-for-entire-document
+%\renewcommand\verbatim@font{\color{solarizedOrange}\normalfont\ttfamily}
+
+% https://tex.stackexchange.com/questions/20687/does-newenvironment-have-a-provideenvironment-cousin-as-newcommand-has-prov
+\def\provideenvironment{\@star@or@long\provide@environment}
+\def\provide@environment#1{%
+        \@ifundefined{#1}%
+                {\def\reserved@a{\newenvironment{#1}}}%
+                {\def\reserved@a{\renewenvironment{dummy@environ}}}%
+        \reserved@a
+}
+\def\dummy@environ{}
+
+% The following from: https://github.com/jgm/pandoc/issues/2178
+\usepackage{color}
+\usepackage{fancyvrb}
+\providecommand{\VerbBar}{|}
+\providecommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\renewcommand{\VerbBar}{|}
+%\renewcommand{\VERB}{\Verb[fontsize=\small,commandchars=\\\{\}]}
+%\DefineVerbatimEnvironment{Highlighting}{Verbatim}{fontsize=\small,commandchars=\\\{\}}
+\renewcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+%\provideenvironment{Shaded}{\linespread{1}}{}
+%\renewenvironment{Shaded}{\linespread{1}}{}
+\providecommand{\KeywordTok}[1]{\textcolor{solarizedBlue}{\textbf{{#1}}}}
+\providecommand{\DataTypeTok}[1]{\textcolor{solarizedBlue}{{#1}}}
+\providecommand{\DecValTok}[1]{\textcolor{solarizedMagenta}{{#1}}}
+\providecommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\providecommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\providecommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\providecommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\providecommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+\providecommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+\providecommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\providecommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+\providecommand{\RegionMarkerTok}[1]{{#1}}
+\providecommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\providecommand{\NormalTok}[1]{{#1}}
+\renewcommand{\KeywordTok}[1]{\textcolor{solarizedGreen}{\textbf{{#1}}}}
+\renewcommand{\DataTypeTok}[1]{\textcolor{solarizedOther}{{#1}}}
+\renewcommand{\DecValTok}[1]{\textcolor{solarizedCyan}{{#1}}}
+\renewcommand{\BaseNTok}[1]{\textcolor{solarizedCyan}{{#1}}}
+\renewcommand{\FloatTok}[1]{\textcolor{solarizedCyan}{{#1}}}
+\renewcommand{\CharTok}[1]{\textcolor{solarizedRed}{{#1}}}
+\renewcommand{\StringTok}[1]{\textcolor{solarizedCyan}{{#1}}}
+\renewcommand{\CommentTok}[1]{\textcolor{solarizedBase01}{\textit{{#1}}}}
+\renewcommand{\OtherTok}[1]{\textcolor{solarizedOrange}{{#1}}}
+\renewcommand{\AlertTok}[1]{\textcolor{solarizedOrange}{\textbf{{#1}}}}
+\renewcommand{\FunctionTok}[1]{\textcolor{solarizedBlue}{{#1}}}
+\renewcommand{\RegionMarkerTok}[1]{{#1}}
+\renewcommand{\ErrorTok}[1]{\textcolor{solarizedError}{\textbf{{#1}}}}
+\renewcommand{\NormalTok}[1]{{#1}}
+
+% Set Accent color
+% Ugly. Should be done with a switch
+\ifdefstring{\solarized@accent}{yellow}{
+  \colorlet{solarizedAccent}{solarizedYellow}
+}{}
+\ifdefstring{\solarized@accent}{orange}{
+  \colorlet{solarizedAccent}{solarizedOrange}
+}{}
+\ifdefstring{\solarized@accent}{red}{
+  \colorlet{solarizedAccent}{solarizedRed}
+}{}
+\ifdefstring{\solarized@accent}{magenta}{
+  \colorlet{solarizedAccent}{solarizedMagenta}
+}{}
+\ifdefstring{\solarized@accent}{violet}{
+  \colorlet{solarizedAccent}{solarizedViolet}
+}{}
+\ifdefstring{\solarized@accent}{blue}{
+  \colorlet{solarizedAccent}{solarizedBlue}
+}{}
+\ifdefstring{\solarized@accent}{cyan}{
+  \colorlet{solarizedAccent}{solarizedCyan}
+}{}
+\ifdefstring{\solarized@accent}{green}{
+  \colorlet{solarizedAccent}{solarizedGreen}
+}{}
+
+%% Set base colors for dark or light versions
+%% Dark
+% Switch between light and dark themes using the method in the CSS
+% stylesheet http://ethanschoonover.com/solarized
+\ifboolexpe{ bool {solarized@dark}}{
+  \colorlet{solarizedRebase03}{solarizedBase03}
+  \colorlet{solarizedRebase02}{solarizedBase02}
+  \colorlet{solarizedRebase01}{solarizedBase01}
+  \colorlet{solarizedRebase00}{solarizedBase00}
+  \colorlet{solarizedRebase0}{solarizedBase0}
+  \colorlet{solarizedRebase1}{solarizedBase1}
+  \colorlet{solarizedRebase2}{solarizedBase2}
+  \colorlet{solarizedRebase3}{solarizedBase3}
+  \hypersetup{colorlinks,linkcolor=,urlcolor=solarizedViolet}
+}{
+  %% Light
+  \colorlet{solarizedRebase03}{solarizedBase3}
+  \colorlet{solarizedRebase02}{solarizedBase2}
+  \colorlet{solarizedRebase01}{solarizedBase1}
+  \colorlet{solarizedRebase00}{solarizedBase0}
+  \colorlet{solarizedRebase0}{solarizedBase00}
+  \colorlet{solarizedRebase1}{solarizedBase01}
+  \colorlet{solarizedRebase2}{solarizedBase02}
+  \colorlet{solarizedRebase3}{solarizedBase03}
+}
+
+\mode<presentation>
+
+\setbeamercolor{normal text}{fg=solarizedRebase0, bg=solarizedRebase03}
+\setbeamercolor{alerted text}{fg=solarizedAccent}
+% based css pre element 
+\setbeamercolor{example text}{fg=solarizedRebase1, bg=solarizedRebase02}
+
+% Header and footer from CSS 
+\setbeamercolor{footline}{bg=solarizedRebase02,fg=solarizedRebase01}
+\setbeamercolor{headline}{bg=solarizedRebase01,fg=solarizedRebase1}
+
+% Titles
+\setbeamercolor*{titlelike}{fg=solarizedAccent}
+\setbeamercolor*{frametitle}{fg=solarizedAccent}
+\setbeamercolor*{title}{fg=solarizedAccent}
+
+% Structure elements use css style for header 
+\setbeamercolor*{structure}{bg=solarizedRebase01, fg=solarizedRebase1}
+
+% Do not mess with subtle colors in palette. I don't like it. 
+\setbeamercolor*{palette primary}{bg=solarizedRebase01, fg=solarizedRebase1}
+\setbeamercolor*{palette secondary}{bg=solarizedRebase01, fg=solarizedRebase1}
+\setbeamercolor*{palette tertiary}{bg=solarizedRebase01, fg=solarizedRebase1}
+\setbeamercolor*{palette quaternary}{bg=solarizedRebase01, fg=solarizedRebase1}
+
+% Make Blocks slightly lighter/darker
+\setbeamercolor{block title}{fg=solarizedAccent, bg=solarizedRebase02}
+%\setbeamercolor{block title alerted}{}
+%\setbeamercolor{block title example}{}
+
+\setbeamercolor{block body}{parent=normal text, bg=solarizedRebase02}
+% \setbeamercolor{block body alerted}{}
+% \setbeamercolor{block body example}{}
+
+% same as footline
+% Set Sidebar and footline to use the css style for footer
+\setbeamercolor*{sidebar}{parent=headline}
+\setbeamercolor*{palette sidebar primary}{fg=solarizedRebase01, fg=solarizedRebase1}
+\setbeamercolor*{palette sidebar secondary}{fg=solarizedRebase01, fg=solarizedRebase1}
+\setbeamercolor*{palette sidebar tertiary}{fg=solarizedRebase01, fg=solarizedRebase1}
+\setbeamercolor*{palette sidebar quaternary}{fg=solarizedRebase01, fg=solarizedRebase1}
+
+% border-color for headings
+\setbeamercolor{separation line}{fg=solarizedRebase0}
+\setbeamercolor{fine separation line}{fg=solarizedRebase0}
+
+\setbeamercolor*{section in sidebar shaded}{parent=palette sidebar primary}
+% a.hover.navlink in CSS
+\setbeamercolor*{section in sidebar}{parent=palette sidebar primary, fg=solarizedRebase02}
+\setbeamercolor*{subsection in sidebar}{parent=section in sidebar}
+\setbeamercolor*{subsection in sidebar shaded}{parent=section in sidebar shaded}
+
+\mode
+<all>

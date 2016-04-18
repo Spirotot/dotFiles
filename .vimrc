@@ -55,10 +55,12 @@ set hlsearch
 vnoremap < <gv
 vnoremap > >gv
 
+"Move between windows using CTRL+VIM navigation keys.
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
 
 "tagbar
 nmap <F8> :TagbarToggle<CR>
@@ -82,7 +84,9 @@ let g:tagbar_type_vimwiki = {
 nnoremap <Leader>w :w<CR>
 
 set nocompatible
-filetype off
+filetype plugin on
+
+
 
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
@@ -97,6 +101,7 @@ Bundle 'mattn/calendar-vim'
 "Bundle 'vim-auto-save'
 Bundle 'tagbar'
 Bundle 'bling/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 
 filetype plugin indent on
 set background=dark

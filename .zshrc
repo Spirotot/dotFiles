@@ -17,11 +17,38 @@ setopt EXTENDED_HISTORY
 #amixer set 'Beep' 0% mute > /dev/null 2>&1
 #window titles...
 source ~/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/lib/termsupport.zsh
+
+function task() {
+    #set -x
+    /bin/task $@
+
+    (
+        if [ -f /tmp/twsync.lock ]; then
+            kill $(cat /tmp/twsync.lock)
+        fi
+
+        echo `sh -c 'echo $PPID' &&` > /tmp/twsync.lock # crappy hack to get subshell's PID...
+        sleep 180
+        /bin/task sync >/dev/null 2>&1
+        rm ~/.task/sync.lock
+        
+    ) > /dev/null 2>&1 &!
+
+    #set +x
+}
+
+function td() {
+    task $@ done
+}
+
 alias vi=vim
 alias ls="ls -F --color"
+alias l=ls
 alias tl="task list"
 alias tn="task"
-alias xo="xdg-open"
+alias ts="task sync"
+alias in="task add +in"
+alias lin="task in"
 alias b="git branch"
 alias systemupdate="yaourt -Syua"
 antigen bundle git
@@ -65,8 +92,17 @@ else
     zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
   fi
 fi
+
+function xo() {
+    xdg-open "$@" &
+}
+
+function to() {
+    taskopen $@
+}
+
 function ta() {
-    task add "$@"
+    task add $@
 }
 
 function calc () {
@@ -74,7 +110,19 @@ function calc () {
 }
 
 function h() {
-    hamster "$@"
+    hamster $@
+}
+
+#http://calnewport.com/blog/2013/12/21/deep-habits-the-importance-of-planning-every-minute-of-your-work-day/
+function godeep() {
+    if [[ "$1"X == "X" ]]
+    then
+        f=`date +%Y-%m-%d_%T`.md
+    else
+        f=$1.md
+    fi
+    cp -n ~/bin/deep_template.md $f # -n, do not overwrite an existing file.
+    vi $f
 }
 
 # Set name of the theme to load.
@@ -200,16 +248,23 @@ bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
 
 function zle-line-init zle-keymap-select {
+    inbox_count=$(/bin/task +in +PENDING count)
+    if [[ $inbox_count > 0 ]]; then
+        inbox_count="%{$fg_bold[red]%}+in $inbox_count%{$reset_color%}"
+    else
+        inbox_count=""
+    fi
+
     VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
     curdir=`pwd`
     user=`whoami`
     if [[ $curdir == /home/$user/mnt/* ]]; then
-        ssh-keygen -F `basename $curdir` > /dev/null 2>&1
+        ssh-keygen -F `basename $curdir` > /dev/null 2>&1 # if the current folder is a known-host...
         if [ $? -eq 0 ]; then
-            RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
+            RPS1="$inbox_count ${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
         fi
     else
-        RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$(bureau_git_prompt) $EPS1"
+        RPS1="$inbox_count ${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$(bureau_git_prompt) $EPS1"
     fi
     zle reset-prompt
 }
@@ -219,3 +274,22 @@ zle -N zle-keymap-select
 export KEYTIMEOUT=1
 
 bindkey '^[[Z' reverse-menu-complete
+
+eval $(keychain --eval --quiet id_rsa)
+
+projects=$(projects_without_next_action.py)
+
+if [ "$projects" != "" ]
+then
+  echo $fg[red]"Attention: The following projects don't currently have a next action:"
+  echo -e "\x1b[4m"
+  echo $projects
+  echo -n $reset_color
+fi
+
+waiting=$(/bin/task +waiting +PENDING count)
+if [ "$waiting" != "0" ]
+then
+  echo "Any progress on these waiting-fors?"
+  task +waiting +PENDING ls
+fi

@@ -26,6 +26,7 @@ exec --no-startup-id davmail
 exec --no-startup-id redshift-gtk
 exec --no-startup-id /usr/local/lib/hamster-time-tracker/hamster-service
 exec --no-startup-id /usr/local/lib/hamster-time-tracker/hamster-windows-service
+exec --no-startup-id dunst
 #exec --no-startup-id tiddlywiki ~/defaultwiki --server
 
 exec --no-startup-id xautolock -time 10 -locker 'i3lock -d' &
@@ -34,9 +35,7 @@ exec --no-startup-id xmodmap -e "add mod3 = Scroll_Lock"
 
 #KVM switch.
 bindsym $mod+Mod1+k exec ~/bin/kvm.sh
-#bindsym $mod+Mod1+l exec i3lock -d
 bindsym $mod+Mod1+l exec ~/bin/lock.sh
-bindsym $mod+n exec nemo --no-desktop
 bindsym $mod+x move workspace to output right
 bindsym $mod+z move workspace to output left
 
@@ -45,6 +44,7 @@ bindsym $mod+Next exec amixer -c 0 set Master 5-
 bindsym $mod+Prior exec amixer -c 0 set Master 5+
 bindsym $mod+Home exec amixer -c 0 set Master toggle
 
+# Screen brightness
 bindsym $mod+Shift+Next exec xbacklight -dec 10
 bindsym $mod+Shift+Prior exec xbacklight -inc 10
 
@@ -157,10 +157,18 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
+bindsym $mod+c [title="^Rocket\.Chat.*"] scratchpad show
+
+bindsym $mod+m [title=".*Muttator$"] scratchpad show
+
+bindsym $mod+g [title="Google Play Music Desktop Player"] scratchpad show
+
 # Make some windows open in floating mode...
 for_window [class="(?i)gcalctool"] floating enable
 for_window [class="(?i)nvidia-settings"] floating enable
 for_window [class="(?i)hamster-windows-service"] floating enable
+for_window [class="Thunderbird" instance="Msgcompose"] floating enable
+for_window [class="Thunderbird" instance="Calendar"] floating enable
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
