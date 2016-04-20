@@ -25,6 +25,8 @@ data.location=~/.task
 #include /usr/share/task/dark-yellow-green.theme
 #include /usr/share/task/dark-gray-256.theme
 
+editor=vim
+
 uda.est.type=duration
 uda.est.label=Est
 
