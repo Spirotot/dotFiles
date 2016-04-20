@@ -47,6 +47,7 @@ report.in.description       = Inbox
 report.in.filter            = status:pending limit:page (+in)
 
 journal.time=on
+search.case.sensitive=no
 
 uda.relativeRecurDue.type=duration
 uda.relativeRecurDue.label='Rel. Rec. Due'
