@@ -62,6 +62,7 @@ Need 'develop' branch from GitHub for [taskwiki](https://github.com/tbabej/taskw
    Extensions](https://wiki.archlinux.org/index.php/IPv6#Privacy_extensions)
 5. Adjust VGA monitors: https://superuser.com/questions/733201/two-identical-external-monitors-one-through-hdmi-another-vga-text-on-vga-looks (http://techmind.org/lcd/phasing.html)
 6. Uncomment 'en_US.UTF-8' in `/etc/local.gen`, and then re-run `sudo local-gen`.
+7. `sudo systemctl enable NetworkManager` to start Network Manager on boot.
 
 ## Invalid signature on packages.
 Try updating your system GPG keys with `sudo pacman-key --refresh-keys`.
