@@ -4,7 +4,7 @@ Working on enumerating useful packages to use to get things rolling upon install
 
 yaourt -S zsh mosh cmake git vim dmenu i3-wm i3lock i3status python-pip tig
 firefox meld sshfs numlockx mpg123 task uuid-evd ttf-inconsolata
-keychain taskopen xorg-server xorg-xinit arandr vundle py3status networkmanager networkmanager-openconnect nm-connection-editor network-manager-applet alsa-utils thunderbird dns-utils rsync dunst linux-headers scrot shutter python2-xcffib python2-pillow
+keychain taskopen xorg-server xorg-xinit arandr vundle py3status networkmanager networkmanager-openconnect nm-connection-editor network-manager-applet alsa-utils thunderbird dns-utils rsync dunst linux-headers scrot shutter python2-xcffib python2-pillow davmail
 
 sudo pip install py3status
 sudo pip install tasklib
