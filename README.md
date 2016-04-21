@@ -4,7 +4,7 @@ Working on enumerating useful packages to use to get things rolling upon install
 
 yaourt -S zsh mosh cmake git vim dmenu i3-wm i3lock i3status python-pip tig
 firefox meld sshfs numlockx mpg123 task uuid-evd ttf-inconsolata
-keychain taskopen xorg-server xorg-xinit arandr
+keychain taskopen xorg-server xorg-xinit arandr vundle
 
 sudo pip install py3status
 sudo pip install tasklib
