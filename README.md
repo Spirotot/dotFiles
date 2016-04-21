@@ -39,10 +39,10 @@ Need 'develop' branch from GitHub for [taskwiki](https://github.com/tbabej/taskw
 2. (if the submodule didn't do it's thing like it's supposed to...) `git clone https://github.com/tbabej/tasklib.git && cd tasklib && git checkout develop && cd ../`
 3. `cd tasklib && sudo python setup.py build && sudo python setup.py install`
 
-# Solarized Colors
-1. `cd ~/solarized/gnome-terminal-colors-solarized`
-2. `./install.sh` # follow prompts.
-3. `cp ~/solarized/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/solarized.vim` # Installs vim colors.
+## Firefox
+
+1. Install [Arc Dark](https://addons.mozilla.org/en-US/firefox/addon/arc-dark-theme/?src=cb-dl-users) theme.
+2. Symlink between `~/bin/userChrome.css` and `~/.mozilla/firefox/[profile]/chrome/userChrome.css` (may have to create `chrome` dir).
 
 ## Thunderbird
 
