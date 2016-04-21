@@ -2,14 +2,14 @@
 
 Working on enumerating useful packages to use to get things rolling upon installation...
 
-sudo apt-get install zsh openssh-server mosh build-essential cmake python-dev
-git vim dmenu i3-wm i3lock i3status python-pip fonts-inconsolata tig
-chromium-browser meld sshfs numlockx mpg123 task uuid-dev exuberant-ctags
-keychain taskopen
+yaourt -S zsh mosh cmake git vim dmenu i3-wm i3lock i3status python-pip tig
+firefox meld sshfs numlockx mpg123 task uuid-edv
+keychain taskopen xorg-server xorg-xinit
 
 sudo pip install py3status
+sudo pip install tasklib
 
-urxvt-perls, urxvt-vtwheel
+urxvt-perls, urxvt-vtwheel, antigen-git
 
 # Installing this repo
 1. `cd ~/`
@@ -61,6 +61,7 @@ Need 'develop' branch from GitHub for [taskwiki](https://github.com/tbabej/taskw
 4. [Enable IPv6 Privacy
    Extensions](https://wiki.archlinux.org/index.php/IPv6#Privacy_extensions)
 5. Adjust VGA monitors: https://superuser.com/questions/733201/two-identical-external-monitors-one-through-hdmi-another-vga-text-on-vga-looks (http://techmind.org/lcd/phasing.html)
+6. Uncomment 'en_US.UTF-8' in `/etc/local.gen`, and then re-run `sudo local-gen`.
 
 ## Invalid signature on packages.
 Try updating your system GPG keys with `sudo pacman-key --refresh-keys`.
