@@ -41,6 +41,12 @@ report.next.filter = status:pending and +next
 report.next.sort=brainpower-,priority-,urgency-
 
 
+report.l.columns=id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.remaining,until.remaining,description,urgency,brainpower,est
+report.l.labels=ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg,BP,Est
+report.l.description = "Verbose List"
+report.l.filter      = status:pending limit:page
+report.l.sort        = urgency-
+
 report.in.columns=id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.remaining,until.remaining,description,urgency,brainpower,est
 report.in.labels=ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg,BP,Est
 report.in.description       = Inbox
