@@ -2,14 +2,14 @@
 
 Working on enumerating useful packages to use to get things rolling upon installation...
 
-sudo apt-get install zsh openssh-server mosh build-essential cmake python-dev
-git vim dmenu i3-wm i3lock i3status python-pip fonts-inconsolata tig
-chromium-browser meld sshfs numlockx mpg123 task uuid-dev exuberant-ctags
-keychain taskopen
+yaourt -S zsh mosh cmake git vim dmenu i3-wm i3lock i3status python-pip tig
+firefox meld sshfs numlockx mpg123 task uuid-evd ttf-inconsolata
+keychain taskopen xorg-server xorg-xinit arandr vundle py3status networkmanager networkmanager-openconnect nm-connection-editor network-manager-applet alsa-utils thunderbird dns-utils rsync dunst linux-headers scrot shutter python2-xcffib python2-pillow davmail redshift-gtk the_silver_searcher
 
 sudo pip install py3status
+sudo pip install tasklib
 
-urxvt-perls, urxvt-vtwheel
+urxvt-perls, urxvt-vtwheel, antigen-git
 
 # Installing this repo
 1. `cd ~/`
@@ -39,10 +39,10 @@ Need 'develop' branch from GitHub for [taskwiki](https://github.com/tbabej/taskw
 2. (if the submodule didn't do it's thing like it's supposed to...) `git clone https://github.com/tbabej/tasklib.git && cd tasklib && git checkout develop && cd ../`
 3. `cd tasklib && sudo python setup.py build && sudo python setup.py install`
 
-# Solarized Colors
-1. `cd ~/solarized/gnome-terminal-colors-solarized`
-2. `./install.sh` # follow prompts.
-3. `cp ~/solarized/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/solarized.vim` # Installs vim colors.
+## Firefox
+
+1. Install [Arc Dark](https://addons.mozilla.org/en-US/firefox/addon/arc-dark-theme/?src=cb-dl-users) theme.
+2. Symlink between `~/bin/userChrome.css` and `~/.mozilla/firefox/[profile]/chrome/userChrome.css` (may have to create `chrome` dir).
 
 ## Thunderbird
 
@@ -61,6 +61,8 @@ Need 'develop' branch from GitHub for [taskwiki](https://github.com/tbabej/taskw
 4. [Enable IPv6 Privacy
    Extensions](https://wiki.archlinux.org/index.php/IPv6#Privacy_extensions)
 5. Adjust VGA monitors: https://superuser.com/questions/733201/two-identical-external-monitors-one-through-hdmi-another-vga-text-on-vga-looks (http://techmind.org/lcd/phasing.html)
+6. Uncomment 'en_US.UTF-8' in `/etc/local.gen`, and then re-run `sudo local-gen`.
+7. `sudo systemctl enable NetworkManager` to start Network Manager on boot.
 
 ## Invalid signature on packages.
 Try updating your system GPG keys with `sudo pacman-key --refresh-keys`.
