@@ -33,11 +33,16 @@ exec --no-startup-id xautolock -time 10 -locker 'i3lock -d' &
 
 exec --no-startup-id xmodmap -e "add mod3 = Scroll_Lock"
 
-#KVM switch.
+
+# KVM switch.
 bindsym $mod+Mod1+k exec ~/bin/kvm.sh
+
+# Workspaces..
 bindsym $mod+Mod1+l exec ~/bin/lock.sh
 bindsym $mod+x move workspace to output right
 bindsym $mod+z move workspace to output left
+bindsym $mod+s move workspace to output up
+workspace_auto_back_and_forth yes
 
 # volume controls -- if they're not working, check the order of the soundcards -- the PCH/headphones one needs to be first. Putting "options snd_hda_intel index=1" into `/etc/modprobe.d/alsa-base.conf` might be helpful.
 bindsym $mod+Next exec amixer -c 0 set Master 5-
@@ -103,7 +108,7 @@ bindsym $mod+f fullscreen
 #bindsym $mod+minus scratchpad show
 
 # change container layout (stacked, tabbed, default)
-bindsym $mod+s layout stacking
+#bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout default
 
@@ -148,7 +153,7 @@ bindsym $mod+Shift+C reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+E exit
+bindsym $mod+Shift+E exit
 
 # Scratchpad stuff
 # Make the currently focused window a scratchpad
