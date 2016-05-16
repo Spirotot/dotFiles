@@ -1,3 +1,5 @@
+set hintchars=hsdfgyuiopqwertnmzxcvb
 inoremap <C-a> <Insert><C-a><Insert>
 map o <C-l>
 map t <C-t>
+ignorekeys add inbox.google.com
