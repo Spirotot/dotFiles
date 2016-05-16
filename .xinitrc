@@ -54,4 +54,5 @@ fi
 #xterm -geometry 80x20+494-0 &
 #exec xterm -geometry 80x66+0+0 -name login
 setxkbmap -option ctrl:nocaps
+xset r rate 200 50
 exec i3

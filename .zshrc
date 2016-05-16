@@ -30,7 +30,7 @@ function task() {
         echo `sh -c 'echo $PPID' &&` > /tmp/twsync.lock # crappy hack to get subshell's PID...
         sleep 180
         /bin/task sync >/dev/null 2>&1
-        rm ~/.task/sync.lock
+        rm /tmp/twsync.lock
         
     ) > /dev/null 2>&1 &!
 
