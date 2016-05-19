@@ -1,5 +1,6 @@
 #!/bin/sh
-
+xrandr --setprovideroutputsource modesetting NVIDIA-0
+xrandr --auto
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -53,7 +54,7 @@ fi
 #xterm -geometry 80x50+494+51 &
 #xterm -geometry 80x20+494-0 &
 #exec xterm -geometry 80x66+0+0 -name login
-setxkbmap -option ctrl:nocaps
+#setxkbmap -option ctrl:nocaps
 xset -b # Another attempt at disabling beeps...
 xset r rate 200 50 
 exec i3
