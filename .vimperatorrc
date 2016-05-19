@@ -1,4 +1,5 @@
 set hintchars=hsdfgyuiopqwertnmzxcvb
+highlight Hint -append font-size:12px;
 inoremap <C-a> <Insert><C-a><Insert>
 map o <C-l>
 map t <C-t>
