@@ -1,11 +1,12 @@
 #!/bin/bash
 
-tmpbg="/tmp/.i3lock.png"
+#tmpbg="/tmp/.i3lock.png"
 
-scrot $tmpbg
-i3lock -i $tmpbg &
+#scrot $tmpbg
+#i3lock -i $tmpbg &
 
-~/bin/py3lock.py
+#~/bin/py3lock.py
 
-kill $(pgrep i3lock)
-i3lock -i $tmpbg
+#kill $(pgrep i3lock)
+#i3lock -d -i $tmpbg
+i3lock-fancy
