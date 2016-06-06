@@ -1,5 +1,6 @@
 #!/bin/sh
-
+#xrandr --setprovideroutputsource modesetting NVIDIA-0
+#xrandr --auto
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -55,4 +56,17 @@ fi
 #exec xterm -geometry 80x66+0+0 -name login
 setxkbmap -option ctrl:nocaps
 xset r rate 200 50
+#xrandr --dpi 192
+
+# Enable touchpad tapping
+#xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" 275 1
+
+# Enable two-finger and three-finger clicks
+xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" "libinput Click Method Enabled" 0 1
+
+# Change accell to 1
+xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" 281 1
+
+# Enable natural scrolling
+xinput set-prop "DLL06E4:01 06CB:7A13 Touchpad" 283 1
 exec i3
