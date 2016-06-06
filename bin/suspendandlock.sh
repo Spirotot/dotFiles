@@ -5,7 +5,7 @@
 #    /org/freedesktop/UPower \
 #    org.freedesktop.UPower.Suspend
 
-i3lock -d && systemctl suspend
-#setxkbmap -option ctrl:nocaps
-xset -b # Another attempt at disabling beeps...
-xset r rate 200 50 
+~/bin/lock.sh &
+sleep 3 && systemctl suspend
+xset -b
+xset r rate 200 50

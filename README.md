@@ -4,10 +4,14 @@ Working on enumerating useful packages to use to get things rolling upon install
 
 yaourt -S zsh mosh cmake git vim dmenu i3-wm i3lock i3status python-pip tig
 firefox meld sshfs numlockx mpg123 task uuid-evd ttf-inconsolata
-keychain taskopen xorg-server xorg-xinit arandr vundle py3status networkmanager networkmanager-openconnect nm-connection-editor network-manager-applet alsa-utils thunderbird dns-utils rsync dunst linux-headers scrot shutter python2-xcffib python2-pillow davmail redshift-gtk the_silver_searcher
+keychain taskopen xorg-server xorg-xinit arandr vundle py3status networkmanager
+networkmanager-openconnect nm-connection-editor network-manager-applet
+alsa-utils thunderbird dns-utils rsync dunst linux-headers scrot shutter
+python2-xcffib python2-pillow davmail redshift-gtk the_silver_searcher
+lxappearance gtk-theme-arc feh i3lock-fancy-git
 
-sudo pip install py3status
-sudo pip install tasklib
+sudo pip install py3status (or from repos, that might be better.)
+sudo pip2 install tasklib
 
 urxvt-perls, urxvt-vtwheel, antigen-git
 
@@ -63,6 +67,8 @@ Need 'develop' branch from GitHub for [taskwiki](https://github.com/tbabej/taskw
 5. Adjust VGA monitors: https://superuser.com/questions/733201/two-identical-external-monitors-one-through-hdmi-another-vga-text-on-vga-looks (http://techmind.org/lcd/phasing.html)
 6. Uncomment 'en_US.UTF-8' in `/etc/local.gen`, and then re-run `sudo local-gen`.
 7. `sudo systemctl enable NetworkManager` to start Network Manager on boot.
+
+
 
 ## Invalid signature on packages.
 Try updating your system GPG keys with `sudo pacman-key --refresh-keys`.

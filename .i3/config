@@ -8,7 +8,11 @@
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-
+for_window [class="^.*"] border pixel 0
+gaps inner 10
+gaps outer 0
+smart_gaps on
+smart_borders on
 set $mod Mod4
 bindsym $mod+Shift+P exec ~/bin/suspendandlock.sh
 
@@ -16,6 +20,8 @@ bindsym Print exec shutter -f -e
 bindsym $mod+Print exec shutter -s -e
 
 exec --no-startup-id amixer set 'Beep' 0% mute > /dev/null 2>&1
+exec --no-startup-id libinput-gestures
+exec --no-startup-id compton -b --config ~/.compton.conf --backend glx
 exec --no-startup-id feh --bg-center ~/background.jpg
 exec --no-startup-id dropbox start
 exec --no-startup-id owncloud
@@ -45,16 +51,17 @@ bindsym $mod+s move workspace to output up
 workspace_auto_back_and_forth yes
 
 # volume controls -- if they're not working, check the order of the soundcards -- the PCH/headphones one needs to be first. Putting "options snd_hda_intel index=1" into `/etc/modprobe.d/alsa-base.conf` might be helpful.
-bindsym $mod+Next exec amixer -c 0 set Master 5-
-bindsym $mod+Prior exec amixer -c 0 set Master 5+
-bindsym $mod+Home exec amixer -c 0 set Master toggle
+bindsym $mod+Next exec amixer -c 0 set Master 5- && killall -s USR1 py3status
+bindsym $mod+Prior exec amixer -c 0 set Master 5+ && killall -s USR1 py3status
+bindsym $mod+Home exec amixer -c 0 set Master toggle && killall -s USR1 py3status
 
 # Screen brightness
-bindsym $mod+Shift+Next exec xbacklight -dec 10
-bindsym $mod+Shift+Prior exec xbacklight -inc 10
+bindsym $mod+Shift+Next exec light -U 5
+bindsym $mod+Shift+Prior exec light -A 5 
 
 # font for window titles. ISO 10646 = Unicode
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+font pango:inconsolata 20
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -136,6 +143,7 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
+
 # move focused container to workspace
 bindsym $mod+Shift+exclam move container to workspace 1: www
 bindsym $mod+Shift+at move container to workspace 2: term
@@ -147,6 +155,9 @@ bindsym $mod+Shift+ampersand move container to workspace 7
 bindsym $mod+Shift+asterisk move container to workspace 8
 bindsym $mod+Shift+parenleft move container to workspace 9
 bindsym $mod+Shift+parenright move container to workspace 10
+
+bindsym $mod+Tab workspace next_on_output
+bindsym $mod+Shift+Tab workspace prev_on_output
 
 # reload the configuration file
 bindsym $mod+Shift+C reload
@@ -205,6 +216,6 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         #status_command i3status
-	status_command py3status -c ~/.i3/i3status.conf -i ~/.i3/py3status/modules/
+	status_command py3status -c ~/.i3/i3status.conf -i /usr/lib/python3.5/site-packages/py3status/modules
 }
 
