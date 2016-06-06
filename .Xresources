@@ -1,3 +1,4 @@
+Xcursor.size: 16
 URxvt.termName: rxvt
 URxvt.print-pipe: "cat > /dev/null"
 URxvt.intensityStyles: false
