@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # vim:ts=2:sw=2:expandtab
 
-import os
+import os, sys
 import xcffib as xcb
 from xcffib.xproto import *
 from PIL import Image
@@ -44,9 +44,9 @@ def obscure_image(image):
 
   return image
 
-def obscure(rects):
+def obscure(rects,image_path='/tmp/.i3lock.png'):
   """ Takes an array of rects to obscure from the screenshot. """
-  image = Image.open('/tmp/.i3lock.png')
+  image = Image.open(image_path)
 
   for rect in rects:
     if rect.x < 0 or rect.y < 0:
@@ -61,7 +61,7 @@ def obscure(rects):
     cropped = obscure_image(cropped)
     image.paste(cropped, area)
 
-  image.save('/tmp/.i3lock.png')
+  image.save(image_path)
 
 def lock_screen():
   os.system('i3lock -u -i /tmp/.i3lock.png')
@@ -74,7 +74,10 @@ if __name__ == '__main__':
   rects = xcb_fetch_windows()
 
   # 3: Process the screenshot.
-  obscure(rects)
+  if len(sys.argv) > 1:
+    obscure(rects,image_path=sys.argv[1])
+  else:
+    obscure(rects,)
 
   # 4: Lock the screen
   #lock_screen()

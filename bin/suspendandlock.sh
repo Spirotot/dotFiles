@@ -5,4 +5,5 @@
 #    /org/freedesktop/UPower \
 #    org.freedesktop.UPower.Suspend
 
-i3lock -d && systemctl suspend
+~/bin/lock.sh &
+sleep 3 && systemctl suspend
