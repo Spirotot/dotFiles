@@ -47,6 +47,11 @@ Need 'develop' branch from GitHub for [taskwiki](https://github.com/tbabej/taskw
 
 1. Install [Arc Dark](https://addons.mozilla.org/en-US/firefox/addon/arc-dark-theme/?src=cb-dl-users) theme.
 2. Symlink between `~/bin/userChrome.css` and `~/.mozilla/firefox/[profile]/chrome/userChrome.css` (may have to create `chrome` dir).
+3. Enable spellcheck
+    1. Install the language pack:
+       https://addons.mozilla.org/en-US/firefox/addon/english-us-language-pack/
+    2. Enable the dictionary if necessary:
+       https://support.mozilla.org/en-US/kb/how-do-i-use-firefox-spell-checker
 
 ## Thunderbird
 
