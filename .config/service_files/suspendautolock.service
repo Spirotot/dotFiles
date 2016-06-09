@@ -1,0 +1,10 @@
+[Unit]
+Description=Lock screen on suspend
+
+[Service]
+User=spirotot
+Environment=DISPLAY=:0
+ExecStart=/home/spirotot/bin/lock.sh
+
+[Install]
+WantedBy=suspend.target
