@@ -14,7 +14,7 @@ gaps outer 0
 smart_gaps on
 smart_borders on
 set $mod Mod4
-bindsym $mod+Shift+P exec ~/bin/suspendandlock.sh
+bindsym $mod+Shift+P exec systemctl suspend # ~/bin/suspendandlock.sh
 
 bindsym Print exec shutter -f -e
 bindsym $mod+Print exec shutter -s -e

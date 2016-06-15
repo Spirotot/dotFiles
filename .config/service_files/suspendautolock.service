@@ -1,10 +1,12 @@
 [Unit]
 Description=Lock screen on suspend
+Before=sleep.target
 
 [Service]
 User=spirotot
+Type=forking
 Environment=DISPLAY=:0
-ExecStart=/home/spirotot/bin/lock.sh
+ExecStart=/usr/bin/i3lock-fancy
 
 [Install]
 WantedBy=suspend.target
