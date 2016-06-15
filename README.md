@@ -43,7 +43,7 @@ Need 'develop' branch from GitHub for [taskwiki](https://github.com/tbabej/taskw
 2. (if the submodule didn't do it's thing like it's supposed to...) `git clone https://github.com/tbabej/tasklib.git && cd tasklib && git checkout develop && cd ../`
 3. `cd tasklib && sudo python setup.py build && sudo python setup.py install`
 
-## Firefox
+# Firefox
 
 1. Install [Arc Dark](https://addons.mozilla.org/en-US/firefox/addon/arc-dark-theme/?src=cb-dl-users) theme.
 2. Symlink between `~/bin/userChrome.css` and `~/.mozilla/firefox/[profile]/chrome/userChrome.css` (may have to create `chrome` dir).
@@ -53,7 +53,7 @@ Need 'develop' branch from GitHub for [taskwiki](https://github.com/tbabej/taskw
     2. Enable the dictionary if necessary:
        https://support.mozilla.org/en-US/kb/how-do-i-use-firefox-spell-checker
 
-## Thunderbird
+# Thunderbird
 
 1. Need to install [Custom
    Buttons](https://addons.mozilla.org/en-US/thunderbird/addon/custom-buttons/)
@@ -61,6 +61,18 @@ Need 'develop' branch from GitHub for [taskwiki](https://github.com/tbabej/taskw
 2. Create a custom button using the
    [tb2taskwarrior_button](./bin/custom-tb2taskwarrior_button.js).
 3. Add a hotkey to the button (Ctrl+t).
+
+# Power Management
+* Useful links:
+    * [Arch Wiki Power](https://wiki.archlinux.org/index.php/Power_management#Audio)
+    * [Reddit Post](https://www.reddit.com/r/archlinux/comments/3vcany/maximise_arch_battery_life/)
+* Commands (as of 6/14/16):
+    * `yaourt -S lm-sensors`{.bash}
+    * `yaourt -S tlp && sudo systemctl enable tlp`{.bash}
+    * `yaourt -S thermald && sudo systemctl enable thermald`{.bash}
+    * `yaourt -S powertop`{.bash}
+    * [Configure `intel-ucode`](https://wiki.archlinux.org/index.php/microcode#Enabling_Intel_microcode_updates)
+    * `reboot`{.bash}
 
 # Misc
 1. `git config --global core.editor "vim"` # Make vim default git editor.
