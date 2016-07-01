@@ -29,7 +29,7 @@ function task() {
 
         echo `sh -c 'echo $PPID' &&` > /tmp/twsync.lock # crappy hack to get subshell's PID...
         sleep 180
-        /bin/task sync >/dev/null 2>&1
+        /bin/task sync rc.gc=off >/dev/null 2>&1
         rm /tmp/twsync.lock
         
     ) > /dev/null 2>&1 &!
@@ -248,7 +248,7 @@ bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
 
 function zle-line-init zle-keymap-select {
-    inbox_count=$(/bin/task +in +PENDING count)
+    inbox_count=$(/bin/task +in +PENDING count rc.gc=off 2>/dev/null)
     if [[ $inbox_count > 0 ]]; then
         inbox_count="%{$fg_bold[red]%}+in $inbox_count%{$reset_color%}"
     else
@@ -291,5 +291,5 @@ waiting=$(/bin/task +waiting +PENDING count)
 if [ "$waiting" != "0" ]
 then
   echo "Any progress on these waiting-fors?"
-  task +waiting +PENDING ls
+  task +waiting +PENDING ls rc.gc=off
 fi
