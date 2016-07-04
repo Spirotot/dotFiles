@@ -1,7 +1,9 @@
+Xft.dpi: 192
 URxvt.termName: rxvt
 URxvt.print-pipe: "cat > /dev/null"
 URxvt.intensityStyles: false
-URxvt.font:             xft:inconsolata:size=10:antialias=true:hinting=true
+!! URxvt.font:             xft:consolas:size=10:antialias=true:hinting=true
+URxvt.font:             xft:inconsolata:size=10:antialias=true:hinting=true,-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
 URxvt.scrollBar: false
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0

@@ -8,7 +8,7 @@ keychain taskopen xorg-server xorg-xinit arandr vundle py3status networkmanager
 networkmanager-openconnect nm-connection-editor network-manager-applet
 alsa-utils thunderbird dns-utils rsync dunst linux-headers scrot shutter
 python2-xcffib python2-pillow davmail redshift-gtk the_silver_searcher
-lxappearance gtk-theme-arc feh i3lock-fancy-git
+lxappearance gtk-theme-arc feh i3lock-fancy-git bdf-unifont
 
 sudo pip install py3status (or from repos, that might be better.)
 sudo pip2 install tasklib
@@ -93,3 +93,6 @@ Try updating your system GPG keys with `sudo pacman-key --refresh-keys`.
 If you're blocked by a firewall, edit the server in
 `/etc/pacman.d/gnupg/gpg.conf` to use the following server:
 `https://gpgtools.tenderapp.com/kb/faq/cant-reach-key-server-are-you-behind-a-company-firewall`
+
+## Fonts
+https://alexandre.deverteuil.net/blogue/unifont-and-rxvt-unicode/
