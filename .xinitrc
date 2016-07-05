@@ -9,15 +9,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
-
-
-
-
-
-
-
     xrdb -merge $sysresources
-
 fi
 
 if [ -f $sysmodmap ]; then
@@ -57,4 +49,5 @@ fi
 #setxkbmap -option ctrl:nocaps
 xset -b # Another attempt at disabling beeps...
 xset r rate 200 50 
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 exec i3
