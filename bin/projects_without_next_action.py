@@ -3,6 +3,6 @@
 import tasklib
 
 tw = tasklib.TaskWarrior()
-result = set(tw.execute_command(["+PROJECT", "+PENDING", "+READY", "-waiting", "_projects"])) - set(tw.execute_command(["+PENDING", "+next", "_projects"]))
+result = set(tw.execute_command(["+PROJECT", "+PENDING", "+READY", "-waiting", "_projects", "rc.gc=off"])) - set(tw.execute_command(["+PENDING", "+next", "_projects", "rc.gc=off"]))
 for i in result:
     print(i)

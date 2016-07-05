@@ -29,7 +29,7 @@ function task() {
 
         echo `sh -c 'echo $PPID' &&` > /tmp/twsync.lock # crappy hack to get subshell's PID...
         sleep 180
-        /bin/task sync >/dev/null 2>&1
+        /bin/task sync rc.gc=off >/dev/null 2>&1
         rm /tmp/twsync.lock
         
     ) > /dev/null 2>&1 &!
@@ -38,7 +38,7 @@ function task() {
 }
 
 function td() {
-    task $@ done
+    task $@ done rc.gc=off
 }
 
 alias vi=vim
@@ -287,9 +287,9 @@ then
   echo -n $reset_color
 fi
 
-waiting=$(/bin/task +waiting +PENDING count)
+waiting=$(/bin/task +waiting +PENDING count rc.gc=off)
 if [ "$waiting" != "0" ]
 then
   echo "Any progress on these waiting-fors?"
-  task +waiting +PENDING ls
+  task +waiting +PENDING ls rc.gc=off
 fi
