@@ -1,6 +1,7 @@
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 let g:ycm_extra_conf_vim_data = ['&filetype']
 let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_python_binary_path = '/usr/bin/python3'
 
 "Remove markdown and vimwiki types from YCM blacklist.
     let g:ycm_filetype_blacklist = {
