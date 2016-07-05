@@ -55,8 +55,8 @@ PATH_EXT=/usr/share/taskopen/scripts
 #CUSTOM1_CMD="muttjumpwrapper"
 
 # Custom regular expression that specifies annotations passed to CUSTOM2_CMD.
-CUSTOM2_REGEX="thunderlink:"
-CUSTOM2_CMD="thunderbird -thunderlink"
+CUSTOM1_REGEX="thunderlink"
+CUSTOM1_CMD="thunderbird -thunderlink"
 
 # Execute an arbitrary if there is no annotation available. The corresponding taskwarrior IDs will
 # be passed as arguments, e.g. "attach.sh 21 42"
