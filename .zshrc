@@ -248,7 +248,7 @@ bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
 
 function zle-line-init zle-keymap-select {
-    inbox_count=$(/bin/task +in +PENDING count)
+    inbox_count=$(/bin/task +in +PENDING count rc.gc=off 2>/dev/null)
     if [[ $inbox_count > 0 ]]; then
         inbox_count="%{$fg_bold[red]%}+in $inbox_count%{$reset_color%}"
     else

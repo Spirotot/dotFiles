@@ -1,0 +1,11 @@
+[Unit]
+Description=TLP USB
+After=powertop.service
+After=tlp.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/tlp usb
+
+[Install]
+WantedBy=multi-user.target

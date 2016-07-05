@@ -8,8 +8,7 @@ keychain taskopen xorg-server xorg-xinit arandr vundle py3status networkmanager
 networkmanager-openconnect nm-connection-editor network-manager-applet
 alsa-utils thunderbird dns-utils rsync dunst linux-headers scrot shutter
 python2-xcffib python2-pillow davmail redshift-gtk the_silver_searcher
-lxappearance gtk-theme-arc feh i3lock-fancy-git evolution evolution-ews
-aspell-en
+lxappearance gtk-theme-arc feh i3lock-fancy-git
 
 sudo pip install py3status (or from repos, that might be better.)
 sudo pip2 install tasklib
@@ -44,12 +43,17 @@ Need 'develop' branch from GitHub for [taskwiki](https://github.com/tbabej/taskw
 2. (if the submodule didn't do it's thing like it's supposed to...) `git clone https://github.com/tbabej/tasklib.git && cd tasklib && git checkout develop && cd ../`
 3. `cd tasklib && sudo python setup.py build && sudo python setup.py install`
 
-## Firefox
+# Firefox
 
 1. Install [Arc Dark](https://addons.mozilla.org/en-US/firefox/addon/arc-dark-theme/?src=cb-dl-users) theme.
 2. Symlink between `~/bin/userChrome.css` and `~/.mozilla/firefox/[profile]/chrome/userChrome.css` (may have to create `chrome` dir).
+3. Enable spellcheck
+    1. Install the language pack:
+       https://addons.mozilla.org/en-US/firefox/addon/english-us-language-pack/
+    2. Enable the dictionary if necessary:
+       https://support.mozilla.org/en-US/kb/how-do-i-use-firefox-spell-checker
 
-# Thunderbird
+## Thunderbird
 
 1. Need to install [Custom
    Buttons](https://addons.mozilla.org/en-US/thunderbird/addon/custom-buttons/)
@@ -62,6 +66,18 @@ Need 'develop' branch from GitHub for [taskwiki](https://github.com/tbabej/taskw
 5. Ensure that `~/.local/share/applications/thunderlink.desktop` is present.
 6. Run `update-desktop-database ~/.local/share/applications`{.bash}
 7. Run `update-mime-database ~/.local/share/mime`{.bash}
+
+# Power Management
+* Useful links:
+    * [Arch Wiki Power](https://wiki.archlinux.org/index.php/Power_management#Audio)
+    * [Reddit Post](https://www.reddit.com/r/archlinux/comments/3vcany/maximise_arch_battery_life/)
+* Commands (as of 6/14/16):
+    * `yaourt -S lm-sensors`{.bash}
+    * `yaourt -S tlp && sudo systemctl enable tlp`{.bash}
+    * `yaourt -S thermald && sudo systemctl enable thermald`{.bash}
+    * `yaourt -S powertop`{.bash}
+    * [Configure `intel-ucode`](https://wiki.archlinux.org/index.php/microcode#Enabling_Intel_microcode_updates)
+    * `reboot`{.bash}
 
 # Misc
 1. `git config --global core.editor "vim"` # Make vim default git editor.
@@ -83,3 +99,6 @@ Try updating your system GPG keys with `sudo pacman-key --refresh-keys`.
 If you're blocked by a firewall, edit the server in
 `/etc/pacman.d/gnupg/gpg.conf` to use the following server:
 `https://gpgtools.tenderapp.com/kb/faq/cant-reach-key-server-are-you-behind-a-company-firewall`
+
+## Fonts
+https://alexandre.deverteuil.net/blogue/unifont-and-rxvt-unicode/
