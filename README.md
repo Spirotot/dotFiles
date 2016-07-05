@@ -8,7 +8,8 @@ keychain taskopen xorg-server xorg-xinit arandr vundle py3status networkmanager
 networkmanager-openconnect nm-connection-editor network-manager-applet
 alsa-utils thunderbird dns-utils rsync dunst linux-headers scrot shutter
 python2-xcffib python2-pillow davmail redshift-gtk the_silver_searcher
-lxappearance gtk-theme-arc feh i3lock-fancy-git
+lxappearance gtk-theme-arc feh i3lock-fancy-git evolution evolution-ews
+aspell-en
 
 sudo pip install py3status (or from repos, that might be better.)
 sudo pip2 install tasklib
@@ -48,7 +49,7 @@ Need 'develop' branch from GitHub for [taskwiki](https://github.com/tbabej/taskw
 1. Install [Arc Dark](https://addons.mozilla.org/en-US/firefox/addon/arc-dark-theme/?src=cb-dl-users) theme.
 2. Symlink between `~/bin/userChrome.css` and `~/.mozilla/firefox/[profile]/chrome/userChrome.css` (may have to create `chrome` dir).
 
-## Thunderbird
+# Thunderbird
 
 1. Need to install [Custom
    Buttons](https://addons.mozilla.org/en-US/thunderbird/addon/custom-buttons/)
@@ -56,6 +57,11 @@ Need 'develop' branch from GitHub for [taskwiki](https://github.com/tbabej/taskw
 2. Create a custom button using the
    [tb2taskwarrior_button](./bin/custom-tb2taskwarrior_button.js).
 3. Add a hotkey to the button (Ctrl+t).
+4. Add `x-scheme-handler/thunderlink=thunderlink.desktop` to
+   `~/.config/mimeapps.list`.
+5. Ensure that `~/.local/share/applications/thunderlink.desktop` is present.
+6. Run `update-desktop-database ~/.local/share/applications`{.bash}
+7. Run `update-mime-database ~/.local/share/mime`{.bash}
 
 # Misc
 1. `git config --global core.editor "vim"` # Make vim default git editor.
@@ -67,6 +73,7 @@ Need 'develop' branch from GitHub for [taskwiki](https://github.com/tbabej/taskw
 5. Adjust VGA monitors: https://superuser.com/questions/733201/two-identical-external-monitors-one-through-hdmi-another-vga-text-on-vga-looks (http://techmind.org/lcd/phasing.html)
 6. Uncomment 'en_US.UTF-8' in `/etc/local.gen`, and then re-run `sudo local-gen`.
 7. `sudo systemctl enable NetworkManager` to start Network Manager on boot.
+8. [Increase lid delay for docking](https://wiki.archlinux.org/index.php/Power_management#Delayed_lid_switch_action)
 
 
 

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=/usr/bin/thunderbird -thunderlink %u
+Icon=thunderbird
+StartupNotify=true
+Terminal=false
+Categories=Utility;
+MimeType=x-scheme-handler/thunderlink
+Name=Thunderlink Launcher
+Comment=Launch Thunderlink in Thunderbird
