@@ -176,7 +176,7 @@ bindsym $mod+c [title="^Rocket\.Chat.*"] scratchpad show
 
 bindsym $mod+m [title=".*Thunderbird$"] scratchpad show
 
-bindsym $mod+g [title="Google Play Music Desktop Player"] scratchpad show
+bindsym $mod+g [instance="google play music desktop player" class="Google Play Music Desktop Player"] scratchpad show
 
 # Make some windows open in floating mode...
 for_window [class="(?i)gcalctool"] floating enable
