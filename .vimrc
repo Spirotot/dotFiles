@@ -103,6 +103,7 @@ Bundle 'mattn/calendar-vim'
 Bundle 'tagbar'
 Bundle 'bling/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
+Bundle 'vim-flake8'
 
 filetype plugin indent on
 set background=dark
@@ -124,6 +125,7 @@ endfunction
 
 :autocmd FileType vimwiki map <leader>c :call ToggleCalendar()<CR>
 :autocmd FileType vimwiki set spell spelllang=en_us
+:autocmd BufWritePost *.py call Flake8()
 
 au FileType markdown setlocal wrap textwidth=80
 au FileType vimwiki setlocal wrap textwidth=80

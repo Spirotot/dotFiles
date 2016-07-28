@@ -9,7 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 for_window [class="^.*"] border pixel 0
-gaps inner 10
+gaps inner 5
 gaps outer 0
 smart_gaps on
 smart_borders on
@@ -21,7 +21,8 @@ bindsym $mod+Print exec shutter -s -e
 
 exec --no-startup-id amixer set 'Beep' 0% mute > /dev/null 2>&1
 exec --no-startup-id libinput-gestures
-exec --no-startup-id compton -b --config ~/.compton.conf --backend glx
+#exec --no-startup-id compton -b --config ~/.compton.conf --backend glx
+exec --no-startup-id compton -b --config ~/.compton.conf --backend xrender --vsync none
 #exec --no-startup-id feh --bg-center ~/background.jpg
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id dropbox start

@@ -57,5 +57,8 @@
     path = .task/hooks/task-relative-recur
     url = https://github.com/JensErat/task-relative-recur.git
 [submodule ".task/.task/hooks/task-relative-recur"]
-	path = .task/.task/hooks/task-relative-recur
-	url = https://github.com/JensErat/task-relative-recur.git
+    path = .task/.task/hooks/task-relative-recur
+    url = https://github.com/JensErat/task-relative-recur.git
+[submodule ".vim/bundle/vim-flake8"]
+    path = .vim/bundle/vim-flake8
+    url = https://github.com/nvie/vim-flake8.git
