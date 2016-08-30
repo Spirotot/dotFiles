@@ -60,3 +60,9 @@ uda.relativeRecurDue.label='Rel. Rec. Due'
 uda.relativeRecurWait.type=duration
 uda.relativeRecurWait.label='Rel. Rec. Wait'
 
+
+taskd.credentials=Public\/fieldad1\/d641a3d4-b786-4d20-bce6-1f3dc9432f6a
+taskd.certificate=\/home\/fieldad1\/.task\/fieldad1.cert.pem
+taskd.key=\/home\/fieldad1\/.task\/fieldad1.key.pem
+taskd.ca=\/home\/fieldad1\/.task\/ca.cert.pem
+taskd.server=fieldad1-laptop.jhuapl.edu:53589
