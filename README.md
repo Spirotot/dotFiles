@@ -96,3 +96,6 @@ If you're blocked by a firewall, edit the server in
 
 ## Fonts
 https://alexandre.deverteuil.net/blogue/unifont-and-rxvt-unicode/
+
+## XPS 9550 reference
+https://ahxxm.com/151.moew
