@@ -10,10 +10,26 @@ let g:ycm_python_binary_path = '/usr/bin/python3'
           \ 'notes' : 1,
           \ 'unite' : 1,
           \ 'text' : 1,
-          \ 'pandoc' : 1,
           \ 'infolog' : 1,
           \ 'mail' : 1
           \}
+
+  let g:ycm_semantic_triggers =  {
+    \   'c' : ['->', '.'],
+    \   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
+    \             're!\[.*\]\s'],
+    \   'ocaml' : ['.', '#'],
+    \   'cpp,objcpp' : ['->', '.', '::'],
+    \   'perl' : ['->'],
+    \   'php' : ['->', '::'],
+    \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+    \   'ruby' : ['.', '::'],
+    \   'lua' : ['.', ':'],
+    \   'erlang' : [':'],
+    \	'pandoc' : ['re!^@', ' @'],
+    \	'markdown.pandoc' : ['re!^@', ' @'],
+    \	'markdown' : ['re!^@', ' @']
+    \ }
 
 "Don't let vimwiki clobber YCM's <Tab> mapping.
 let g:vimwiki_table_mappings = 0
@@ -21,7 +37,16 @@ let g:vimwiki_table_mappings = 0
 let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.wiki': 'default'}
 let g:vimwiki_folding='expr'
+let g:vimwiki_global_ext=0
 let mapleader="\<Space>"
+
+let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
+let g:pandoc#filetypes#pandoc_markdown=0
+let g:pandoc#biblio#use_bibtool=1
+let g:pandoc#formatting#mode='hA'
+let g:pandoc#formatting#textwidth=80
+
+set omnifunc=syntaxcomplete#Complete
 
 "Airline
 "let g:airline#extensions#tabline#fnamemod = ':t'
@@ -94,8 +119,8 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'vimwiki'
-Bundle 'taskwiki'
+"Bundle 'vimwiki'
+"Bundle 'taskwiki'
 Bundle 'vim-expand-region'
 Bundle 'rking/ag.vim'
 Bundle 'mattn/calendar-vim'
@@ -103,7 +128,10 @@ Bundle 'mattn/calendar-vim'
 Bundle 'tagbar'
 Bundle 'bling/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
-Bundle 'vim-flake8'
+Bundle 'vim-pandoc/vim-pandoc'
+Bundle 'vim-pandoc/vim-pandoc-syntax'
+"Plugin 'godlygeek/tabular'
+"Plugin 'plasticboy/vim-markdown'
 
 filetype plugin indent on
 set background=dark
@@ -125,7 +153,17 @@ endfunction
 
 :autocmd FileType vimwiki map <leader>c :call ToggleCalendar()<CR>
 :autocmd FileType vimwiki set spell spelllang=en_us
+:autocmd FileType markdown map <leader>c :call ToggleCalendar()<CR>
+:autocmd FileType markdown set spell spelllang=en_us
+:autocmd FileType pandoc map <leader>c :call ToggleCalendar()<CR>
+:autocmd FileType pandoc set spell spelllang=en_us
+:autocmd FileType markdown.pandoc map <leader>c :call ToggleCalendar()<CR>
+:autocmd FileType markdown.pandoc set spell spelllang=en_us
+:autocmd BufNewFile,BufRead *.md filetype plugin indent off
+:autocmd BufNewFile,BufRead,BufFilePRe *.md set filetype=markdown.pandoc
 :autocmd BufWritePost *.py call Flake8()
-
 au FileType markdown setlocal wrap textwidth=80
 au FileType vimwiki setlocal wrap textwidth=80
+au FileType pandoc setlocal wrap textwidth=80
+au FileType pandoc setlocal fo+=t
+
