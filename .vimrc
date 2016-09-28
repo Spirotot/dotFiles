@@ -25,7 +25,9 @@ let g:ycm_seed_identifiers_with_syntax = 1
     \   'ruby' : ['.', '::'],
     \   'lua' : ['.', ':'],
     \   'erlang' : [':'],
-    \	'pandoc' : ['re!^@', ' @']
+    \	'pandoc' : ['re!^@', ' @'],
+    \	'markdown.pandoc' : ['re!^@', ' @'],
+    \	'markdown' : ['re!^@', ' @']
     \ }
 
 "Don't let vimwiki clobber YCM's <Tab> mapping.
@@ -37,8 +39,11 @@ let g:vimwiki_folding='expr'
 let g:vimwiki_global_ext=0
 let mapleader="\<Space>"
 
+let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
 let g:pandoc#filetypes#pandoc_markdown=0
 let g:pandoc#biblio#use_bibtool=1
+let g:pandoc#formatting#mode='hA'
+let g:pandoc#formatting#textwidth=80
 
 set omnifunc=syntaxcomplete#Complete
 
@@ -124,8 +129,8 @@ Bundle 'bling/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 Bundle 'vim-pandoc/vim-pandoc'
 Bundle 'vim-pandoc/vim-pandoc-syntax'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+"Plugin 'godlygeek/tabular'
+"Plugin 'plasticboy/vim-markdown'
 
 filetype plugin indent on
 set background=dark
@@ -151,8 +156,11 @@ endfunction
 :autocmd FileType markdown set spell spelllang=en_us
 :autocmd FileType pandoc map <leader>c :call ToggleCalendar()<CR>
 :autocmd FileType pandoc set spell spelllang=en_us
+:autocmd FileType markdown.pandoc map <leader>c :call ToggleCalendar()<CR>
+:autocmd FileType markdown.pandoc set spell spelllang=en_us
 :autocmd BufNewFile,BufRead *.md filetype plugin indent off
 :autocmd BufNewFile,BufRead,BufFilePRe *.md set filetype=markdown.pandoc
+:autocmd BufNewFile,BufRead,BufFilePRe *.md setlocal wrap textwidth=80
 au FileType markdown setlocal wrap textwidth=80
 au FileType vimwiki setlocal wrap textwidth=80
 au FileType pandoc setlocal wrap textwidth=80
