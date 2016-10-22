@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cp -f ~/.i3/config.widescreen ~/.i3/config
+cp -f ~/.Xresources.widescreen ~/.Xresources
+
+startx

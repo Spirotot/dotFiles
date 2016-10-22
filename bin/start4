@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cp -f ~/.i3/config.4k ~/.i3/config
+cp -f ~/.Xresources.4k ~/.Xresources
+
+startx
