@@ -8,5 +8,4 @@
 #~/bin/py3lock.py
 
 #kill $(pgrep i3lock)
-#i3lock -d -i $tmpbg
-i3lock-fancy
+i3lock -i ~/background.png -e 
