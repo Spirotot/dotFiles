@@ -2,6 +2,11 @@ let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 let g:ycm_extra_conf_vim_data = ['&filetype']
 let g:ycm_seed_identifiers_with_syntax = 1
 
+let g:table_mode_corner="|"
+"let g:table_mode_corner="+"
+"let g:table_mode_header_fillchar="="
+" https://github.com/vim-pandoc/vim-pandoc-after
+let g:pandoc#after#modules#enabled = ["tablemode"]
 "Remove markdown and vimwiki types from YCM blacklist.
     let g:ycm_filetype_blacklist = {
           \ 'tagbar' : 1,
@@ -129,6 +134,8 @@ Bundle 'bling/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 Bundle 'vim-pandoc/vim-pandoc'
 Bundle 'vim-pandoc/vim-pandoc-syntax'
+Bundle 'vim-pandoc/vim-pandoc-after'
+Bundle 'dhruvasagar/vim-table-mode'
 "Plugin 'godlygeek/tabular'
 "Plugin 'plasticboy/vim-markdown'
 
