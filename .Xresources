@@ -10,7 +10,7 @@ URxvt.secondaryScroll: 0
 URxvt.secondaryWheel: 1
 URxvt.perl-ext-common: default,matcher,vtwheel,resize-font,clipboard,fork-here
 URxvt.keysym.Mod4-Shift-Return: perl:fork-here:fork-at-cwd
-URxvt.url-launcher: /usr/bin/firefox
+URxvt.url-launcher: /usr/bin/chromium
 URxvt.matcher.button: 1
 URxvt.resize-font.smaller: C-minus
 URxvt.resize-font.bigger: C-plus
