@@ -177,7 +177,7 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 #bindsym $mod+c [title="^Rocket\.Chat.*"] scratchpad show
-bindsym $mod+c [title="^Mattermost.*"] scratchpad show
+bindsym $mod+c [title=".*Mattermost.*"] scratchpad show
 
 bindsym $mod+m [title=".*Thunderbird$"] scratchpad show
 
