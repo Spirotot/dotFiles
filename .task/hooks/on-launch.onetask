@@ -7,6 +7,6 @@ for arg in sys.argv:
         command = arg.split(':')[1]
         if command == 'start':
             p = subprocess.Popen(
-                    ['task', '+ACTIVE', 'status:pending', 'stop', 'rc.verbose=off'],
+                    ['task', '+ACTIVE', 'stop', 'rc.verbose=off'],
                     stdout=subprocess.PIPE)
             out, err = p.communicate()
