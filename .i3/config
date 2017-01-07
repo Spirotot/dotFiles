@@ -24,7 +24,8 @@ exec --no-startup-id libinput-gestures
 exec --no-startup-id compton -b --config ~/.compton.conf --backend glx
 exec --no-startup-id feh --bg-center ~/background.jpg
 exec --no-startup-id dropbox start
-exec --no-startup-id owncloud
+# exec --no-startup-id owncloud
+exec --no-startup-id nextcloud
 exec --no-startup-id nm-applet
 exec --no-startup-id gnome-sound-applet
 exec --no-startup-id urxvtd -o -f -q
@@ -33,8 +34,9 @@ exec --no-startup-id redshift-gtk
 exec --no-startup-id /usr/local/lib/hamster-time-tracker/hamster-service
 exec --no-startup-id /usr/local/lib/hamster-time-tracker/hamster-windows-service
 exec --no-startup-id dunst
+exec --no-startup-id xfce4-power-manager
 #exec --no-startup-id tiddlywiki ~/defaultwiki --server
-
+exec --no-startup-id sudo ~/bin/powertop-fix.sh
 exec --no-startup-id xautolock -time 10 -locker 'i3lock -d' &
 
 exec --no-startup-id xmodmap -e "add mod3 = Scroll_Lock"
@@ -61,7 +63,8 @@ bindsym $mod+Shift+Prior exec light -A 5
 
 # font for window titles. ISO 10646 = Unicode
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-font pango:inconsolata 20
+# font pango:inconsolata,unifont 20
+font pango:inconsolata,unifont 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
