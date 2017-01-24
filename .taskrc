@@ -37,7 +37,7 @@ uda.brainpower.default=M
 
 report.next.columns=id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.remaining,until.remaining,description,urgency,brainpower,est
 report.next.labels=ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg,BP,Est
-report.next.filter = status:pending and +next
+report.next.filter = status:pending and +next -BLOCKED
 report.next.sort=brainpower-,priority-,urgency-
 
 
