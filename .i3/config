@@ -8,7 +8,7 @@
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 2
 gaps inner 10
 gaps outer 0
 smart_gaps on
@@ -20,27 +20,30 @@ bindsym Print exec shutter -f -e
 bindsym $mod+Print exec shutter -s -e
 
 exec --no-startup-id amixer set 'Beep' 0% mute > /dev/null 2>&1
-exec --no-startup-id libinput-gestures
 exec --no-startup-id compton -b --config ~/.compton.conf --backend glx
 exec --no-startup-id feh --bg-center ~/background.jpg
 exec --no-startup-id dropbox start
 # exec --no-startup-id owncloud
 exec --no-startup-id nextcloud
 exec --no-startup-id nm-applet
-exec --no-startup-id gnome-sound-applet
 exec --no-startup-id urxvtd -o -f -q
-exec --no-startup-id davmail
 exec --no-startup-id redshift-gtk
 exec --no-startup-id /usr/local/lib/hamster-time-tracker/hamster-service
 exec --no-startup-id /usr/local/lib/hamster-time-tracker/hamster-windows-service
 exec --no-startup-id dunst
-exec --no-startup-id xfce4-power-manager
+exec --no-startup-id xrdb -merge ~/.Xresources
 #exec --no-startup-id tiddlywiki ~/defaultwiki --server
 exec --no-startup-id sudo ~/bin/powertop-fix.sh
-exec --no-startup-id xautolock -time 10 -locker 'i3lock -d' &
+exec --no-startup-id xautolock -time 10 -locker 'swaylock' &
 
 exec --no-startup-id xmodmap -e "add mod3 = Scroll_Lock"
+output eDP-1 scale 2
 
+input 1739:31251:DLL06E4:01_06CB:7A13_To {
+	natural_scroll	enabled
+	click_method	clickfinger
+	dwt		enabled
+}
 
 # KVM switch.
 bindsym $mod+Mod1+k exec ~/bin/kvm.sh
@@ -76,7 +79,7 @@ bindsym $mod+Shift+Q kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id sway-dmenu-desktop
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -93,7 +96,7 @@ bindsym $mod+Right focus right
 bindsym $mod+Shift+J move left
 bindsym $mod+Shift+K move down
 bindsym $mod+Shift+L move up
-bindsym $mod+Shift+colon move right
+bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -134,10 +137,10 @@ bindsym $mod+a focus parent
 #bindcode $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1: www
-bindsym $mod+2 workspace 2: term
-bindsym $mod+3 workspace 3: mail
-bindsym $mod+4 workspace 4: ide
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -147,16 +150,16 @@ bindsym $mod+0 workspace 10
 
 
 # move focused container to workspace
-bindsym $mod+Shift+exclam move container to workspace 1: www
-bindsym $mod+Shift+at move container to workspace 2: term
-bindsym $mod+Shift+numbersign move container to workspace 3: mail
-bindsym $mod+Shift+dollar move container to workspace 4: ide
-bindsym $mod+Shift+percent move container to workspace 5
-bindsym $mod+Shift+asciicircum move container to workspace 6
-bindsym $mod+Shift+ampersand move container to workspace 7
-bindsym $mod+Shift+asterisk move container to workspace 8
-bindsym $mod+Shift+parenleft move container to workspace 9
-bindsym $mod+Shift+parenright move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+10 move container to workspace 10
 
 bindsym $mod+Tab workspace next_on_output
 bindsym $mod+Shift+Tab workspace prev_on_output
@@ -221,3 +224,4 @@ bar {
 	status_command py3status -c ~/.i3/i3status.conf -i /usr/lib/python3.5/site-packages/py3status/modules
 }
 
+exec --no-startup-id libinput-gestures -v > ~/gestures.log 2>&1

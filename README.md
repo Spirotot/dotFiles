@@ -66,6 +66,7 @@ Need 'develop' branch from GitHub for [taskwiki](https://github.com/tbabej/taskw
 * Useful links:
     * [Arch Wiki Power](https://wiki.archlinux.org/index.php/Power_management#Audio)
     * [Reddit Post](https://www.reddit.com/r/archlinux/comments/3vcany/maximise_arch_battery_life/)
+    * [Bumblebee](https://wiki.archlinux.org/index.php/bumblebee)
 * Commands (as of 6/14/16):
     * `yaourt -S lm-sensors`{.bash}
     * `yaourt -S tlp && sudo systemctl enable tlp`{.bash}

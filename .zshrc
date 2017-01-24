@@ -310,3 +310,8 @@ export GPG_TTY=$(tty)
 
 # Refresh gpg-agent tty in case user switches into an X session
 gpg-connect-agent updatestartuptty /bye >/dev/null
+
+# swaywm FAQ
+export WLC_REPEAT_RATE=50
+export WLC_REPEAT_DELAY=200
+export XKB_DEFAULT_OPTIONS=ctrl:nocaps
