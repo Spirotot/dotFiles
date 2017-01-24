@@ -30,9 +30,9 @@ let g:pandoc#after#modules#enabled = ["tablemode"]
     \   'ruby' : ['.', '::'],
     \   'lua' : ['.', ':'],
     \   'erlang' : [':'],
-    \	'pandoc' : ['re!^@', ' @'],
-    \	'markdown.pandoc' : ['re!^@', ' @'],
-    \	'markdown' : ['re!^@', ' @']
+    \	'pandoc' : ['re!^@', ' @', ' [@'],
+    \	'markdown.pandoc' : ['re!^@', ' @', ' [@'],
+    \	'markdown' : ['re!^@', ' @', ' [@']
     \ }
 
 "Don't let vimwiki clobber YCM's <Tab> mapping.
