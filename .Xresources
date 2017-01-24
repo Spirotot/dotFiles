@@ -1,8 +1,15 @@
-Xft.dpi: 192
+!Xft.dpi: 96
+Xcursor.size: 16
+!!Xft.dpi: 109
+!!Xft.dpi: 128
+
+! 4k below.
+!!Xft.dpi: 192
 URxvt.termName: rxvt
 URxvt.print-pipe: "cat > /dev/null"
 URxvt.intensityStyles: false
 !! URxvt.font:             xft:consolas:size=10:antialias=true:hinting=true
+!!Xft.lcdfilter: lcddefault
 URxvt.font:             xft:inconsolata:size=10:antialias=true:hinting=true,-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
 URxvt.scrollBar: false
 URxvt.secondaryScreen: 1
