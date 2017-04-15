@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 #set -x
 #source ~/.antigen/antigen.zsh
-source /usr/share/zsh/scripts/antigen/antigen.zsh
+source /usr/share/zsh/share/antigen.zsh
 #http://www.lowlevelmanager.com/2012/04/zsh-history-extend-and-persist.html
 setopt APPEND_HISTORY
 setopt inc_append_history
@@ -16,7 +16,7 @@ setopt HIST_EXPIRE_DUPS_FIRST
 setopt EXTENDED_HISTORY
 #amixer set 'Beep' 0% mute > /dev/null 2>&1
 #window titles...
-source ~/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/lib/termsupport.zsh
+source /usr/share/zsh/share/antigen.zsh
 
 function task() {
     #set -x
@@ -31,7 +31,7 @@ function task() {
         sleep 180
         /bin/task sync rc.gc=off >/dev/null 2>&1
         rm /tmp/twsync.lock
-        
+
     ) > /dev/null 2>&1 &!
 
     #set +x
@@ -40,7 +40,6 @@ function task() {
 function td() {
     task $@ done
 }
-
 alias vi=vim
 alias ls="ls -F --color"
 alias l=ls
@@ -62,17 +61,19 @@ antigen bundle python
 antigen bundle systemd
 antigen bundle gnu-utils
 antigen bundle joel-porquet/zsh-dircolors-solarized # This uses `dircolors` to populate LS_COLORS with the proper solarized colors...
-source ~/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/lib/nvm.zsh
+#source ~/.antigen/bundles/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/lib/nvm.zsh
+source ~/.antigen/bundles/robbyrussell/oh-my-zsh/lib/nvm.zsh
 autoload -U colors && colors # https://stackoverflow.com/questions/26829821/zsh-theme-not-working-properly-on-osx
-antigen theme bureau
+p=`pwd -L`
+antigen theme bureau 2>/dev/null
+cd "$p"
 #antigen theme blinks
 #export TERM=rxvt-unicode-256color
-
 autoload -Uz compinit
 compinit
-
 antigen apply
-eval `dircolors ~/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joel-porquet-SLASH-zsh-dircolors-solarized.git/dircolors-solarized/dircolors.ansi-dark`
+#eval `dircolors ~/.antigen/bundles/https-COLON--SLASH--SLASH-github.com-SLASH-joel-porquet-SLASH-zsh-dircolors-solarized.git/dircolors-solarized/dircolors.ansi-dark`
+eval `dircolors ~/.antigen/bundles/joel-porquet/zsh-dircolors-solarized/dircolors-solarized/dircolors.ansi-dark`
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select
 
@@ -145,7 +146,6 @@ function godeep() {
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
-
 # Uncomment the following line to enable command auto-correction.
  ENABLE_CORRECTION="true"
 
@@ -175,7 +175,7 @@ function godeep() {
 
 # User configuration
 
-export PATH=$PATH:"$HOME/bin/jdk1.7.0_45/bin/:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/bin/:$HOME/.cabal/bin/"
+export PATH=$PATH:"$HOME/bin/jdk1.7.0_45/bin/:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:$HOME/bin/:$HOME/.gem/ruby/2.4.0/bin/"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

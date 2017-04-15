@@ -137,6 +137,7 @@ Bundle 'vim-pandoc/vim-pandoc-syntax'
 Bundle 'vim-pandoc/vim-pandoc-after'
 Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'nvie/vim-flake8'
+Bundle 'jiangmiao/auto-pairs'
 "Plugin 'godlygeek/tabular'
 "Plugin 'plasticboy/vim-markdown'
 

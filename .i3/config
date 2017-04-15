@@ -28,21 +28,22 @@ exec --no-startup-id nextcloud
 exec --no-startup-id nm-applet
 exec --no-startup-id urxvtd -o -f -q
 exec --no-startup-id redshift-gtk
-exec --no-startup-id /usr/local/lib/hamster-time-tracker/hamster-service
-exec --no-startup-id /usr/local/lib/hamster-time-tracker/hamster-windows-service
+#exec --no-startup-id /usr/local/lib/hamster-time-tracker/hamster-service
+#exec --no-startup-id /usr/local/lib/hamster-time-tracker/hamster-windows-service
 exec --no-startup-id dunst
 exec --no-startup-id xrdb -merge ~/.Xresources
 #exec --no-startup-id tiddlywiki ~/defaultwiki --server
 exec --no-startup-id sudo ~/bin/powertop-fix.sh
 exec --no-startup-id xautolock -time 10 -locker 'swaylock' &
 
-exec --no-startup-id xmodmap -e "add mod3 = Scroll_Lock"
+#exec --no-startup-id xmodmap -e "add mod3 = Scroll_Lock"
 output eDP-1 scale 2
 
 input 1739:31251:DLL06E4:01_06CB:7A13_To {
 	natural_scroll	enabled
 	click_method	clickfinger
 	dwt		enabled
+        pointer_accel   .4
 }
 
 # KVM switch.
@@ -221,7 +222,8 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         #status_command i3status
-	status_command py3status -c ~/.i3/i3status.conf -i /usr/lib/python3.5/site-packages/py3status/modules
+	#status_command py3status -c ~/.i3/i3status.conf -i /usr/lib/python3.5/site-packages/py3status/modules
+	status_command py3status -c ~/.i3/i3status.conf
 }
 
 exec --no-startup-id libinput-gestures -v > ~/gestures.log 2>&1
