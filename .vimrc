@@ -143,6 +143,7 @@ Bundle 'nvie/vim-flake8'
 Bundle 'tpope/vim-surround'
 Bundle 'rstacruz/vim-closer'
 Bundle 'tpope/vim-endwise'
+Bundle 'yggdroot/indentLine'
 
 filetype plugin indent on
 set background=dark
