@@ -137,9 +137,12 @@ Bundle 'vim-pandoc/vim-pandoc-syntax'
 Bundle 'vim-pandoc/vim-pandoc-after'
 Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'nvie/vim-flake8'
-Bundle 'jiangmiao/auto-pairs'
+"Bundle 'jiangmiao/auto-pairs'
 "Plugin 'godlygeek/tabular'
 "Plugin 'plasticboy/vim-markdown'
+Bundle 'tpope/vim-surround'
+Bundle 'rstacruz/vim-closer'
+Bundle 'tpope/vim-endwise'
 
 filetype plugin indent on
 set background=dark
