@@ -180,3 +180,6 @@ au FileType vimwiki setlocal wrap textwidth=80
 au FileType pandoc setlocal wrap textwidth=80
 au FileType pandoc setlocal fo+=t
 
+autocmd InsertEnter * setlocal concealcursor=
+autocmd InsertLeave * setlocal concealcursor=inc
+let g:indentLine_noConcealCursor=""
