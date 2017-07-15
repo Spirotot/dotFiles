@@ -49,7 +49,7 @@ alias ts="task sync"
 alias in="task add +in"
 alias lin="task in"
 alias b="git branch"
-alias systemupdate="yaourt -Syua"
+alias systemupdate="yaourt -Syyua"
 antigen bundle git
 antigen bundle docker
 antigen bundle zsh-users/zsh-syntax-highlighting
