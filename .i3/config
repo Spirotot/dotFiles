@@ -9,7 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 for_window [class="^.*"] border pixel 2
-gaps inner 10
+gaps inner 5
 gaps outer 0
 smart_gaps on
 smart_borders on
@@ -160,7 +160,7 @@ bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+10 move container to workspace 10
+bindsym $mod+Shift+0 move container to workspace 10
 
 bindsym $mod+Tab workspace next_on_output
 bindsym $mod+Shift+Tab workspace prev_on_output
@@ -191,6 +191,7 @@ for_window [class="(?i)nvidia-settings"] floating enable
 for_window [class="(?i)hamster-windows-service"] floating enable
 for_window [class="Thunderbird" instance="Msgcompose"] floating enable
 for_window [class="Thunderbird" instance="Calendar"] floating enable
+for_window [class="feh" instance="feh"] floating enable
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
