@@ -123,6 +123,7 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'w0rp/ale'
 "Bundle 'vimwiki'
 "Bundle 'taskwiki'
 Bundle 'vim-expand-region'
@@ -136,7 +137,7 @@ Bundle 'vim-pandoc/vim-pandoc'
 Bundle 'vim-pandoc/vim-pandoc-syntax'
 Bundle 'vim-pandoc/vim-pandoc-after'
 Bundle 'dhruvasagar/vim-table-mode'
-Bundle 'nvie/vim-flake8'
+"Bundle 'nvie/vim-flake8'
 "Bundle 'jiangmiao/auto-pairs'
 "Plugin 'godlygeek/tabular'
 "Plugin 'plasticboy/vim-markdown'
@@ -174,7 +175,7 @@ endfunction
 :autocmd BufNewFile,BufRead *.md filetype plugin indent off
 :autocmd BufNewFile,BufRead,BufFilePRe *.md set filetype=markdown.pandoc
 :autocmd BufNewFile,BufRead,BufFilePRe *.md setlocal wrap textwidth=80
-:autocmd BufWritePost *.py call Flake8()
+":autocmd BufWritePost *.py call Flake8()
 au FileType markdown setlocal wrap textwidth=80
 au FileType vimwiki setlocal wrap textwidth=80
 au FileType pandoc setlocal wrap textwidth=80
