@@ -1,7 +1,5 @@
 # Path to your oh-my-zsh installation.
-#set -x
 #source ~/.antigen/antigen.zsh
-source /usr/share/zsh/share/antigen.zsh
 #http://www.lowlevelmanager.com/2012/04/zsh-history-extend-and-persist.html
 setopt APPEND_HISTORY
 setopt inc_append_history
@@ -16,7 +14,6 @@ setopt HIST_EXPIRE_DUPS_FIRST
 setopt EXTENDED_HISTORY
 #amixer set 'Beep' 0% mute > /dev/null 2>&1
 #window titles...
-source /usr/share/zsh/share/antigen.zsh
 
 function task() {
     #set -x
@@ -50,6 +47,14 @@ alias in="task add +in"
 alias lin="task in"
 alias b="git branch"
 alias systemupdate="yaourt -Syyua"
+
+# https://superuser.com/questions/1043806/is-it-possible-to-exit-from-ranger-file-explorer-back-to-command-prompt-but
+alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
+
+
+autoload -Uz compinit
+source /usr/share/zsh/share/antigen.zsh
+antigen use oh-my-zsh
 antigen bundle git
 antigen bundle docker
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -69,7 +74,6 @@ antigen theme bureau 2>/dev/null
 cd "$p"
 #antigen theme blinks
 #export TERM=rxvt-unicode-256color
-autoload -Uz compinit
 compinit
 antigen apply
 #eval `dircolors ~/.antigen/bundles/https-COLON--SLASH--SLASH-github.com-SLASH-joel-porquet-SLASH-zsh-dircolors-solarized.git/dircolors-solarized/dircolors.ansi-dark`
@@ -246,6 +250,21 @@ bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
+
+function ranger-cd {
+# https://gist.github.com/ha7ilm/37c4272b1df6fbfdb0df30464252241e
+    tempfile="$(mktemp -t tmp.XXXXXX)"
+    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" &&
+    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+        cd -- "$(cat "$tempfile")"
+    fi  
+    rm -f -- "$tempfile"
+}
+
+
+bindkey -s '^O' 'ranger-cd\n'
+#ranger-cd will fire for Ctrl+O
 
 function zle-line-init zle-keymap-select {
     inbox_count=$(/bin/task +in +PENDING count rc.gc=off 2>/dev/null)
