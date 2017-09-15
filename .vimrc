@@ -35,6 +35,8 @@ let g:pandoc#after#modules#enabled = ["tablemode"]
     \	'markdown' : ['re!^@', ' @', ' [@']
     \ }
 
+let g:ale_sh_shellcheck_options = '-x'
+
 "Don't let vimwiki clobber YCM's <Tab> mapping.
 let g:vimwiki_table_mappings = 0
 
@@ -184,3 +186,5 @@ au FileType pandoc setlocal fo+=t
 autocmd InsertEnter * setlocal concealcursor=
 autocmd InsertLeave * setlocal concealcursor=inc
 let g:indentLine_noConcealCursor=""
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
