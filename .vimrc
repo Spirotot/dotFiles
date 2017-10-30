@@ -147,6 +147,8 @@ Bundle 'tpope/vim-surround'
 Bundle 'rstacruz/vim-closer'
 Bundle 'tpope/vim-endwise'
 Bundle 'yggdroot/indentLine'
+Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'benmills/vimux'
 
 filetype plugin indent on
 set background=dark
@@ -188,3 +190,14 @@ autocmd InsertLeave * setlocal concealcursor=inc
 let g:indentLine_noConcealCursor=""
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+" vv to generate new vertical split
+nnoremap <silent> vv <C-w>v
+
+" https://blog.bugsnag.com/tmux-and-vim/
+" Prompt for a command to run
+map <Leader>vp :VimuxPromptCommand<CR>
+" Run last command executed by VimuxRunCommand
+map <Leader>vl :VimuxRunLastCommand<CR>
+" Inspect runner pane
+map <Leader>vi :VimuxInspectRunner<CR>

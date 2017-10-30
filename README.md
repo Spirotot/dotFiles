@@ -1,3 +1,5 @@
+https://blog.bugsnag.com/tmux-and-vim/
+
 # dotFiles
 
 Working on enumerating useful packages to use to get things rolling upon installation...

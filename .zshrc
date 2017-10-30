@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh installation.
-#source ~/.antigen/antigen.zsh
+source ~/bin/antigen/antigen.zsh
+
 #http://www.lowlevelmanager.com/2012/04/zsh-history-extend-and-persist.html
 setopt APPEND_HISTORY
 setopt inc_append_history
@@ -17,7 +18,7 @@ setopt EXTENDED_HISTORY
 
 function task() {
     #set -x
-    /bin/task $@
+    /usr/bin/task $@
 
     (
         if [ -f /tmp/twsync.lock ]; then
@@ -26,7 +27,7 @@ function task() {
 
         echo `sh -c 'echo $PPID' &&` > /tmp/twsync.lock # crappy hack to get subshell's PID...
         sleep 180
-        /bin/task sync rc.gc=off >/dev/null 2>&1
+        /usr/bin/task sync rc.gc=off >/dev/null 2>&1
         rm /tmp/twsync.lock
 
     ) > /dev/null 2>&1 &!
@@ -53,7 +54,6 @@ alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`;
 
 
 autoload -Uz compinit
-source /usr/share/zsh/share/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle git
 antigen bundle docker
@@ -244,6 +244,7 @@ bindkey '^[[4~' end-of-line
 
 bindkey -v
 
+bindkey -M viins 'jk' vi-cmd-mode  # exit to normal mode with 'jk'
 bindkey '^P' up-history
 bindkey '^N' down-history
 bindkey '^?' backward-delete-char
@@ -267,7 +268,7 @@ bindkey -s '^O' 'ranger-cd\n'
 #ranger-cd will fire for Ctrl+O
 
 function zle-line-init zle-keymap-select {
-    inbox_count=$(/bin/task +in +PENDING count rc.gc=off 2>/dev/null)
+    inbox_count=$(/usr/bin/task +in +PENDING count rc.gc=off 2>/dev/null)
     if [[ $inbox_count > 0 ]]; then
         inbox_count="%{$fg_bold[red]%}+in $inbox_count%{$reset_color%}"
     else
@@ -290,7 +291,7 @@ function zle-line-init zle-keymap-select {
 
 zle -N zle-line-init
 zle -N zle-keymap-select
-export KEYTIMEOUT=1
+export KEYTIMEOUT=10
 
 bindkey '^[[Z' reverse-menu-complete
 
@@ -306,7 +307,7 @@ then
   echo -n $reset_color
 fi
 
-waiting=$(/bin/task +waiting +PENDING count)
+waiting=$(/usr/bin/task +waiting +PENDING count)
 if [ "$waiting" != "0" ]
 then
   echo "Any progress on these waiting-fors?"
@@ -314,21 +315,21 @@ then
 fi
 
 # Start the gpg-agent if not already running
-if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
-  gpg-connect-agent /bye >/dev/null 2>&1
-fi
+#if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
+#  gpg-connect-agent /bye >/dev/null 2>&1
+#fi
 
 # Set SSH to use gpg-agent
-unset SSH_AGENT_PID
-if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-  export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
-fi
+#unset SSH_AGENT_PID
+#if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+#  export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
+#fi
 
 # Set GPG TTY
-export GPG_TTY=$(tty)
+#export GPG_TTY=$(tty)
 
 # Refresh gpg-agent tty in case user switches into an X session
-gpg-connect-agent updatestartuptty /bye >/dev/null
+#gpg-connect-agent updatestartuptty /bye >/dev/null
 
 # swaywm FAQ
 export WLC_REPEAT_RATE=50
