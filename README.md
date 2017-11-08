@@ -1,5 +1,7 @@
 https://blog.bugsnag.com/tmux-and-vim/
 
+https://github.com/Anthony25/gnome-terminal-colors-solarized
+
 # dotFiles
 
 Working on enumerating useful packages to use to get things rolling upon installation...
