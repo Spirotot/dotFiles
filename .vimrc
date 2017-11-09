@@ -119,11 +119,16 @@ set nocompatible
 filetype plugin on
 
 
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
-Bundle 'gmarik/vundle'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'w0rp/ale'
 "Bundle 'vimwiki'
@@ -149,6 +154,8 @@ Bundle 'tpope/vim-endwise'
 Bundle 'yggdroot/indentLine'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'benmills/vimux'
+
+call vundle#end()
 
 filetype plugin indent on
 set background=dark
