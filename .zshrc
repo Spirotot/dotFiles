@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-source ~/bin/antigen/antigen.zsh
+source ~/antigen/antigen.zsh
 
 #http://www.lowlevelmanager.com/2012/04/zsh-history-extend-and-persist.html
 setopt APPEND_HISTORY
