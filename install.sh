@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo eopkg it tmux gdb make cmake gcc g++ glibc-devel linux-headers python-devel golang rust cargo pip zsh diffutils llvm-clang
+sudo eopkg it tmux gdb make cmake gcc g++ glibc-devel linux-headers python-devel golang rust cargo pip zsh diffutils llvm-clang atool docker
 
 # Install/configure VIM & plugins...
 mkdir -p ~/.vim/bundle
@@ -18,3 +18,7 @@ echo "DONE! debug your program with gdb and enjoy"
 git clone https://github.com/zsh-users/antigen.git ~/antigen
 sudo pip install tasklib
 chsh -s $(which zsh)
+
+# Make sure tmux is happy.
+mkdir -p ~/.tmux/plugins
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
