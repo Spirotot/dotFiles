@@ -1,4 +1,7 @@
 # Path to your oh-my-zsh installation.
+export ZSH_TMUX_AUTOSTART=true
+export ZSH_TMUX_AUTOSTART_ONCE=false
+export ZSH_TMUX_AUTOCONNECT=false
 source ~/antigen/antigen.zsh
 
 #http://www.lowlevelmanager.com/2012/04/zsh-history-extend-and-persist.html
@@ -55,6 +58,9 @@ alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`;
 
 autoload -Uz compinit
 antigen use oh-my-zsh
+antigen bundle tmux
+alias tls="tmux list-sessions"
+alias tns="tmux new-session -s"
 antigen bundle git
 antigen bundle docker
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -179,7 +185,8 @@ function godeep() {
 
 # User configuration
 
-export PATH=$PATH:"$HOME/bin/jdk1.7.0_45/bin/:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:$HOME/bin/:$HOME/.gem/ruby/2.4.0/bin/"
+export PATH=$PATH:~/bin
+#export PATH=$PATH:"$HOME/bin/jdk1.7.0_45/bin/:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:$HOME/bin/:$HOME/.gem/ruby/2.4.0/bin/"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
