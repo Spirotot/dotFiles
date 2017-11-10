@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo eopkg it tmux gdb make cmake gcc g++ glibc-devel linux-headers python-devel golang rust cargo pip zsh diffutils llvm-clang atool docker taskwarrior pkg-config dbus-devel dbus-glib-devel
+sudo eopkg it tmux gdb make cmake gcc g++ glibc-devel linux-headers python-devel golang rust cargo pip zsh diffutils llvm-clang atool docker taskwarrior pkg-config dbus-devel dbus-glib-devel strace
 
 # Install/configure VIM & plugins...
 mkdir -p ~/.vim/bundle
@@ -33,8 +33,12 @@ mkdir -p ~/.task/hooks
 cp /snap/timew-spirotot/current/share/doc/timew/ext/on-modify.timewarrior ~/.task/hooks/
 chmod +x ~/.task/hooks/on-modify.timewarrior
 
-
 # And Bugwarrior..
 sudo pip install bugwarrior
 sudo pip install "bugwarrior[keyring]"
 cd ~/.config/systemd/user && systemctl --user enable bugwarrior-pull.timer && systemctl --user start bugwarrior-pull.timer && cd -
+
+# And tasksh.
+cd ~/bin && wget https://raw.githubusercontent.com/chihchun/snapcraft-docker/a8d3161a61cb921e1f895742209e66f73c6579e6/snapcraft-docker && chmod +x snapcraft-docker && cd -
+cd /tmp
+git clone https://github.com/Spirotot/tasksh-spirotot.git && cd tasksh-spirotot && snapcraft-docker ./build.sh && sudo snap install --dangerous --classic ./*.snap && cd ~/
