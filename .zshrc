@@ -47,7 +47,7 @@ alias ts="task sync"
 alias in="task add +in"
 alias lin="task in"
 alias b="git branch"
-alias systemupdate="yaourt -Syyua"
+alias bp="bugwarrior-pull"
 
 # https://superuser.com/questions/1043806/is-it-possible-to-exit-from-ranger-file-explorer-back-to-command-prompt-but
 alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
