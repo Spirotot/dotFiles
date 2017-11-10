@@ -72,6 +72,10 @@ antigen bundle python
 antigen bundle systemd
 antigen bundle gnu-utils
 antigen bundle joel-porquet/zsh-dircolors-solarized # This uses `dircolors` to populate LS_COLORS with the proper solarized colors...
+antigen bundle marzocchi/zsh-notify
+zstyle ':notify:*' command-complete-timeout 15
+zstyle ':notify:*' error-title ERROR
+zstyle ':notify:*' success-title SUCCESS
 #source ~/.antigen/bundles/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/lib/nvm.zsh
 source ~/.antigen/bundles/robbyrussell/oh-my-zsh/lib/nvm.zsh
 autoload -U colors && colors # https://stackoverflow.com/questions/26829821/zsh-theme-not-working-properly-on-osx
