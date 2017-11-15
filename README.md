@@ -90,7 +90,10 @@ Need 'develop' branch from GitHub for [taskwiki](https://github.com/tbabej/taskw
 6. Uncomment 'en_US.UTF-8' in `/etc/local.gen`, and then re-run `sudo local-gen`.
 7. `sudo systemctl enable NetworkManager` to start Network Manager on boot.
 
+## Setting up ZSH/TMUX keyboard shortcuts
 
+Create a new keyboard shortcut (Super + Shift + Enter) that executes:
+`gnome-terminal -- sh -c "export ZSH_TMUX_AUTOSTART=false; zsh"`.
 
 ## Invalid signature on packages.
 Try updating your system GPG keys with `sudo pacman-key --refresh-keys`.
