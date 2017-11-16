@@ -1,5 +1,8 @@
 # Path to your oh-my-zsh installation.
-export ZSH_TMUX_AUTOSTART=true
+if [ ! -n "$ZSH_TMUX_AUTOSTART" ]
+then
+    export ZSH_TMUX_AUTOSTART=true
+fi
 export ZSH_TMUX_AUTOSTART_ONCE=false
 export ZSH_TMUX_AUTOCONNECT=false
 source ~/antigen/antigen.zsh

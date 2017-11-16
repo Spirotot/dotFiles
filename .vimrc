@@ -1,4 +1,4 @@
-"let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 set encoding=utf-8
 set nobackup
 let g:ycm_extra_conf_vim_data = ['&filetype']
@@ -132,6 +132,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'rdnetto/YCM-Generator'
 Bundle 'w0rp/ale'
 "Bundle 'vimwiki'
 "Bundle 'taskwiki'

@@ -1,6 +1,9 @@
 #!/bin/bash
 
-sudo eopkg it tmux gdb make cmake gcc g++ glibc-devel linux-headers python-devel golang rust cargo pip zsh diffutils llvm-clang atool docker timewarrior pkg-config dbus-devel dbus-glib-devel strace vagrant
+sudo eopkg it tmux gdb make cmake gcc g++ glibc-devel linux-headers python-devel golang rust cargo pip zsh diffutils llvm-clang atool docker taskwarrior pkg-config dbus-devel dbus-glib-devel strace vagrant
+
+# Make Docker happy
+sudo usermod -a -G docker $USER
 
 # Install/configure VIM & plugins...
 mkdir -p ~/.vim/bundle
@@ -27,11 +30,12 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sudo snap install timew-spirotot
 sudo snap alias timew-spirotot.timew timew
 
-# Set up timewarrior
+# Set up taskwarrior
 mkdir -p ~/.task/hooks
 #ln -s /snap/timew-spirotot/current/share/doc/timew/ext/on-modify.timewarrior ~/.task/hooks/on-modify.timewarrior
 cp /snap/timew-spirotot/current/share/doc/timew/ext/on-modify.timewarrior ~/.task/hooks/
 chmod +x ~/.task/hooks/on-modify.timewarrior
+
 
 # And Bugwarrior..
 sudo pip install bugwarrior
