@@ -51,6 +51,7 @@ let mapleader="\<Space>"
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
 let g:pandoc#filetypes#pandoc_markdown=0
 let g:pandoc#biblio#use_bibtool=1
+let g:pandoc#completion#bib#mode='citeproc'
 let g:pandoc#formatting#mode='hA'
 let g:pandoc#formatting#textwidth=80
 
