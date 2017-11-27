@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo eopkg it tmux gdb make cmake gcc g++ glibc-devel linux-headers python-devel golang rust cargo pip zsh diffutils llvm-clang atool docker taskwarrior pkg-config dbus-devel dbus-glib-devel strace vagrant
+sudo eopkg it tmux gdb make cmake gcc g++ glibc-devel linux-headers python-devel golang rust cargo pip zsh diffutils llvm-clang atool docker taskwarrior pkg-config dbus-devel dbus-glib-devel strace vagrant python-ipython pandoc pandoc-citeproc texlive-all bibtool virtualenv sshfs-fuse git-lfs
 
 # Make Docker happy
 sudo usermod -a -G docker $USER
