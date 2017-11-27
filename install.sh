@@ -2,7 +2,7 @@
 
 #sudo eopkg it tmux gdb make cmake gcc g++ glibc-devel linux-headers python-devel golang rust cargo pip zsh diffutils llvm-clang atool docker taskwarrior pkg-config dbus-devel dbus-glib-devel strace vagrant
 
-sudo apt-get -y remove --purge thunderbird rhythmbox
+sudo apt-get -y remove --purge thunderbird rhythmbox gnome-shell-extension-ubuntu-dock
 
 sudo apt-get update
 sudo apt-get -y install curl
