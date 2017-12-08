@@ -5,15 +5,29 @@
 sudo apt-get -y remove --purge thunderbird rhythmbox gnome-shell-extension-ubuntu-dock
 
 sudo apt-get update
+
 sudo apt-get -y install curl
-curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+
+curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
+echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
 
 sudo apt-add-repository -y ppa:tista/adapta
 sudo add-apt-repository -y ppa:papirus/papirus
+sudo add-apt-repository -y ppa:git-core/ppa
 
 sudo apt-get update
 
-sudo apt-get -y install vim tmux gdb build-essential linux-headers-$(uname --kernel-release) python-dev golang rustc cargo python-pip zsh diffutils tig meld clang  atool pandoc texlive bibtool docker.io taskwarrior timewarrior bugwarrior tasksh evolution strace vagrant gnome-tweak-tool breeze-cursor-theme papirus-icon-theme adapta-gtk-theme chromium-browser virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso fonts-roboto libinput-tools xdotool wmctrl signal-desktop tlp powertop
+sudo apt-get -y install vim tmux gdb build-essential cmake linux-headers-$(uname --kernel-release) python-dev golang rustc cargo python-pip virtualenv zsh zsh-antigen diffutils tig meld clang  atool pandoc pandoc-citeproc texlive bibtool docker.io taskwarrior timewarrior bugwarrior tasksh evolution strace packer vagrant gnome-tweak-tool breeze-cursor-theme papirus-icon-theme adapta-gtk-theme chromium-browser virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso fonts-roboto libinput-tools xdotool wmctrl signal-desktop tlp powertop libjson-perl arandr libpam-u2f mosh exuberant-ctags hunspell sshfs git-lfs
+
+cargo install rls
+cargo install rustfmt
+
+git lfs install
+git config --global core.editor "vim" 
+
+# taskopen
+git clone https://github.com/ValiValpas/taskopen
+cd taskopen && make PREFIX=/usr && sudo make PREFIX=/usr install && cd -
 
 # Make Docker happy
 sudo usermod -a -G docker $USER
@@ -23,7 +37,7 @@ sudo usermod -a -G input $USER
 mkdir -p ~/.vim/bundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
-cd ~/.vim/bundle/YouCompleteMe && ./install.py --system-libclang --clang-completer --go-completer --rust-completer && cd -
+cd ~/.vim/bundle/YouCompleteMe && python ./install.py --clang-completer --go-completer --rust-completer && cd -
 vim +PluginInstall +qall
 
 # Install GDB PEDA
@@ -34,6 +48,7 @@ echo "DONE! debug your program with gdb and enjoy"
 # Make sure ZSH is happy.
 git clone https://github.com/zsh-users/antigen.git ~/antigen
 sudo pip install tasklib
+sudo pip install selenium
 chsh -s $(which zsh)
 
 # NTFY: https://github.com/dschep/ntfy

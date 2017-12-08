@@ -1,7 +1,32 @@
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+let g:ackprg = 'ag --nogroup --nocolor --column'
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+let g:root#auto = 1
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+cnoreabbrev Ack Ack!
+"set cscopetag
+"set csprg=gtags-cscope
+set tags=tags;/
+let g:ctrlp_extensions = ['tag']
+
 set encoding=utf-8
 set nobackup
+
+
 let g:ycm_extra_conf_vim_data = ['&filetype']
+let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 
 let g:table_mode_corner="|"
@@ -52,6 +77,7 @@ let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
 let g:pandoc#filetypes#pandoc_markdown=0
 let g:pandoc#biblio#use_bibtool=1
 let g:pandoc#completion#bib#mode='citeproc'
+let g:pandoc#completion#use_preview=1
 let g:pandoc#formatting#mode='hA'
 let g:pandoc#formatting#textwidth=80
 
@@ -67,7 +93,8 @@ set laststatus=2
 "let g:auto_save = 1
 
 syntax on
-set autochdir
+"set autochdir
+
 set clipboard=unnamed
 set number
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
@@ -158,8 +185,18 @@ Bundle 'tpope/vim-endwise'
 Bundle 'yggdroot/indentLine'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'benmills/vimux'
+Bundle 'ctrlpvim/ctrlp.vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'EinfachToll/DidYouMean'
+Bundle 'dylanaraps/root.vim'
+Bundle 'rust-lang/rust.vim'
 
 call vundle#end()
+
+let g:root#patterns += ['Cargo.toml', 'Cargo.lock']
+let g:ale_fixers = {}
+let g:ale_fixers.rust = ['rustfmt']
+let g:ale_rust_rls_toolchain = 'stable'
 
 filetype plugin indent on
 set background=dark

@@ -2,6 +2,14 @@ https://blog.bugsnag.com/tmux-and-vim/
 
 https://github.com/Anthony25/gnome-terminal-colors-solarized
 
+# Gnome Extensions
+
+* https://extensions.gnome.org/extension/964/do-not-disturb-button/
+* https://extensions.gnome.org/extension/1039/taskwhisperer/
+* https://extensions.gnome.org/extension/19/user-themes/
+* https://extensions.gnome.org/extension/1160/dash-to-panel/
+* https://extensions.gnome.org/extension/657/shelltile/
+
 # dotFiles
 
 Working on enumerating useful packages to use to get things rolling upon installation...

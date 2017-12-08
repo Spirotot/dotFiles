@@ -195,7 +195,7 @@ function godeep() {
 
 # User configuration
 
-export PATH=$PATH:~/bin
+export PATH=$PATH:~/bin:~/.cargo/bin
 #export PATH=$PATH:"$HOME/bin/jdk1.7.0_45/bin/:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:$HOME/bin/:$HOME/.gem/ruby/2.4.0/bin/"
 # export MANPATH="/usr/local/man:$MANPATH"
 
