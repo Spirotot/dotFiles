@@ -101,7 +101,10 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set backspace=indent,eol,start
 set t_Co=16
 "https://unix.stackexchange.com/questions/139578/copy-paste-for-vim-is-not-working-when-mouse-set-mouse-a-is-on
-set mouse=r
+set mouse+=a
+
+" https://superuser.com/questions/549930/cant-resize-vim-splits-inside-tmux
+set ttymouse=xterm2
 
 "Mappings for expand-region.
 vmap v <Plug>(expand_region_expand)
@@ -146,7 +149,6 @@ let g:tagbar_type_vimwiki = {
 nnoremap <Leader>w :w<CR>
 
 set nocompatible
-filetype plugin on
 
 
 " set the runtime path to include Vundle and initialize
@@ -190,6 +192,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'EinfachToll/DidYouMean'
 Bundle 'dylanaraps/root.vim'
 Bundle 'rust-lang/rust.vim'
+Bundle 'PProvost/vim-ps1'
 
 call vundle#end()
 
@@ -198,7 +201,6 @@ let g:ale_fixers = {}
 let g:ale_fixers.rust = ['rustfmt']
 let g:ale_rust_rls_toolchain = 'stable'
 
-filetype plugin indent on
 set background=dark
 colorscheme solarized
 
@@ -249,3 +251,5 @@ map <Leader>vp :VimuxPromptCommand<CR>
 map <Leader>vl :VimuxRunLastCommand<CR>
 " Inspect runner pane
 map <Leader>vi :VimuxInspectRunner<CR>
+filetype off
+filetype plugin indent on

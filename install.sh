@@ -17,7 +17,10 @@ sudo add-apt-repository -y ppa:git-core/ppa
 
 sudo apt-get update
 
-sudo apt-get -y install vim tmux gdb build-essential cmake linux-headers-$(uname --kernel-release) python-dev golang rustc cargo python-pip virtualenv zsh zsh-antigen diffutils tig meld clang  atool pandoc pandoc-citeproc texlive bibtool docker.io taskwarrior timewarrior bugwarrior tasksh evolution strace packer vagrant gnome-tweak-tool breeze-cursor-theme papirus-icon-theme adapta-gtk-theme virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso fonts-roboto libinput-tools xdotool wmctrl signal-desktop tlp powertop libjson-perl arandr libpam-u2f mosh exuberant-ctags hunspell sshfs git-lfs
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y install vim tmux gdb build-essential cmake linux-headers-$(uname --kernel-release) python-dev golang rustc cargo python-pip virtualenv zsh zsh-antigen diffutils tig meld clang  atool pandoc pandoc-citeproc texlive bibtool docker.io taskwarrior timewarrior bugwarrior tasksh evolution strace packer vagrant gnome-tweak-tool breeze-cursor-theme papirus-icon-theme adapta-gtk-theme virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso fonts-roboto libinput-tools xdotool wmctrl signal-desktop tlp powertop libjson-perl arandr libpam-u2f mosh exuberant-ctags hunspell sshfs git-lfs chrome-gnome-shell qemu-kvm
+
+vagrant plugin install winrm
+vagrant plugin install winrm-fs
 
 cargo install rls
 cargo install rustfmt
