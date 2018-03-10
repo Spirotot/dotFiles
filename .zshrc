@@ -12,6 +12,7 @@ zmodload zsh/zprof
 
 #source /usr/share/zsh-antigen/antigen.zsh
 source ~/wsl_bin/antigen/antigen.zsh
+source ~/wsl_bin/mintty-colors-solarized/sol.dark
 
 #http://www.lowlevelmanager.com/2012/04/zsh-history-extend-and-persist.html
 setopt APPEND_HISTORY

@@ -1,0 +1,6 @@
+[submodule "wsl_bin/antigen"]
+	path = wsl_bin/antigen
+	url = https://github.com/zsh-users/antigen.git
+[submodule "wsl_bin/mintty-colors-solarized"]
+	path = wsl_bin/mintty-colors-solarized
+	url = https://github.com/mavnn/mintty-colors-solarized.git
